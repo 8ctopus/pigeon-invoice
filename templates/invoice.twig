@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Invoice {{ invoice.transactionId }}</title>
+<style type="text/css">
+
+body {
+    margin-left: 1rem;
+    margin-right: 1rem;
+
+    font: 78%/155% Merriweather;
+    line-height: 125%;
+}
+
+table {
+    margin: 0px;
+    border: none;
+    width: 100%;
+
+    text-align: center;
+}
+
+table th {
+    padding: 4px;
+    background-color: #E1ACF0;
+}
+
+table td.company {
+    padding-bottom: 0.5rem;
+
+    text-align: left;
+    line-height: 105%;
+}
+
+table#1 th {
+    width: 50%;
+}
+
+table#2 th:nth-child(1) {
+    width: 50%;
+}
+
+table#2 th:nth-child(2),
+table#2 th:nth-child(3) {
+    width: 25%;
+}
+
+.right {
+    text-align: right;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.bg-none {
+    background-color: unset;
+}
+
+hr {
+    color: #E1ACF0;
+}
+
+</style>
+</head>
+<body>
+<table id="1">
+    <tr>
+        <td class="company">
+            <strong>{{ invoice.seller.name }}</strong><br>
+            {{ invoice.seller.address.street1 }}<br>
+            {{ invoice.seller.address.zip}} {{ invoice.seller.address.city }} <br>
+            {{ invoice.seller.address.country }}<br>
+            <br>
+            <a href="{{ invoice.seller.website }}">{{ invoice.seller.website }}</a><br>
+            <a href="mailto:{{ invoice.seller.email }}">{{ invoice.seller.email }}</a>
+        </td>
+        <td>
+            <img src="images/logo.png" alt="company logo" />
+        </td>
+    </tr>
+    <tr>
+        <th>Invoice date</th>
+        <th>Invoice number</th>
+    </tr>
+    <tr>
+        <td>{{ invoice.date }}</td>
+        <td>{{ invoice.transactionId }}</td>
+    </tr>
+    <tr>
+        <th>Billing address</th>
+        <th>Payment information</th>
+    </tr>
+    <tr>
+        <td>{{ invoice.buyer.name }}</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>{{ invoice.buyer.address.street1 }}</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>{{ invoice.buyer.address.street2 }}</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>{{ invoice.buyer.address.zip }} {{ invoice.buyer.address.city }}</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>{{ invoice.buyer.address.country }}</td>
+        <td></td>
+    </tr>
+</table>
+
+<table id="2">
+    <tr>
+        <th>Items purchased</th>
+        <th>Quantity</th>
+        <th>Price</th>
+    </tr>
+    {{ include('products.twig') }}
+    <tr>
+        <td></td>
+        <td class="right">Sub-total</td>
+        <td>{{ invoice.subtotal }}</td>
+    </tr>
+    {% if invoice.discount %}
+    {{ include('discount.twig') }}
+    {% endif %}
+    <tr>
+        <td colspan="2" class="right bold">Total ({{ invoice.currency }})</td>
+        <td class="bold">{{ invoice.total }}</td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <th colspan="2" class="bg-none">Activation codes</th>
+    </tr>
+    {{ include('codes.twig') }}
+    <tr>
+        <td colspan="2">
+            <hr>
+            For any questions related to your invoice please contact us at
+            <a href="mailto:{{ invoice.seller.email }}">{{ invoice.seller.email }}</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

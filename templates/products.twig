@@ -1,0 +1,7 @@
+{% for product in invoice.products %}
+<tr>
+    <td>{{ product.name }}</td>
+    <td>{{ product.quantity }}</td>
+    <td>{{ product.subtotal }}</td>
+</tr>
+{% endfor %}

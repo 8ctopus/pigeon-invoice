@@ -1,0 +1,7 @@
+# other
+/vendor/
+
+/*.sublime-workspace
+/.php-cs-fixer.cache
+/invoice.html
+/invoice.pdf

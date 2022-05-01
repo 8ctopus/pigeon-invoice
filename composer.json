@@ -1,0 +1,21 @@
+{
+    "name": "8ctopus/invoice",
+    "authors": [
+        {
+            "name": "8ctopus",
+            "email": "hello@octopuslabs.io"
+        }
+    ],
+    "require": {
+        "twig/twig": "^3.0",
+        "dompdf/dompdf": "^1.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "oct8pus\\Invoice\\": "src"
+        }
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.8"
+    }
+}

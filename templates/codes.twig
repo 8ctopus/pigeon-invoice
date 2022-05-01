@@ -1,0 +1,17 @@
+{% for product in invoice.products %}
+<tr>
+    <th colspan="2">{{ product.name }} v{{ product.version }}</th>
+</tr>
+<tr>
+    <td>First name</td>
+    <td>{{ invoice.buyer.firstName }}</td>
+</tr>
+<tr>
+    <td>Last name</td>
+    <td>{{ invoice.buyer.secondName }}</td>
+</tr>
+<tr>
+    <td>Activation code</td>
+    <td>{{ product.code(invoice.buyer.firstName, invoice.buyer.secondName) }}</td>
+</tr>
+{% endfor %}
