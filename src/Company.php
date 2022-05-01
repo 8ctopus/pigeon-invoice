@@ -13,14 +13,14 @@ class Company extends Entity
         parent::__construct($address);
     }
 
-    public function addWebsite(string $website)
-    {
-        $this->website = $website;
-    }
-
     public function __toString() : string
     {
         return "{$this->name}\n" . $this->address;
+    }
+
+    public function addWebsite(string $website)
+    {
+        $this->website = $website;
     }
 
     public function isCompany() : bool

@@ -12,14 +12,14 @@ abstract class Entity
         $this->address = $address;
     }
 
-    public function addEmail(string $email)
-    {
-        $this->email = $email;
-    }
-
     public function __toString() : string
     {
         return $this->address;
+    }
+
+    public function addEmail(string $email)
+    {
+        $this->email = $email;
     }
 
     public function isCompany() : bool

@@ -3,7 +3,6 @@
 namespace oct8pus\Invoice;
 
 use DateTime;
-use Exception;
 
 class Invoice
 {
