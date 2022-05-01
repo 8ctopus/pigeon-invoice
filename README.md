@@ -14,8 +14,16 @@ A php package to create pdf and html invoices.
 
 - git clone the project
 - `composer install`
-- `php index.php`
+- `php demo.php`
 - check `invoice.pdf` / `invoice.html`
+
+## install
+
+```sh
+composer require 8ctopus/pigeon-invoice
+```
+
+See `demo.php` for more info
 
 ## credits
 

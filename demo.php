@@ -12,7 +12,6 @@ use Twig\Environment;
 
 require_once './vendor/autoload.php';
 
-
 $address = new Address("16 Leo Tolstoy Street", "", "119021", "Moscow", "Russia");
 $seller = new Company("Widgets Inc.", $address);
 
@@ -25,6 +24,7 @@ $buyer = new Person("Yuri", "Kamasov", $address);
 $invoice = new Invoice();
 $invoice->addSeller($seller);
 $invoice->addBuyer($buyer);
+
 $invoice->addDate(new DateTime('28-04-2022'));
 $invoice->addTransactionId("EN43UD6JA7I2LNBC17");
 $invoice->addCurrency("$");
