@@ -5,7 +5,7 @@ use oct8pus\Invoice\Company;
 use oct8pus\Invoice\Discount;
 use oct8pus\Invoice\Invoice;
 use oct8pus\Invoice\Person;
-use oct8pus\Invoice\Product;
+use oct8pus\Extend\Product;
 use oct8pus\Invoice\Tax;
 
 require_once './vendor/autoload.php';

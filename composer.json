@@ -21,7 +21,8 @@
     },
     "autoload": {
         "psr-4": {
-            "oct8pus\\Invoice\\": "src"
+            "oct8pus\\Invoice\\": "src",
+            "oct8pus\\Extend\\": "extend"
         }
     }
 }
