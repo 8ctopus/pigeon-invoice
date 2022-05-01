@@ -4,21 +4,17 @@ Create pdf invoices for software.
 
 ## features
 
-- html / pdf
+- html / pdf invoice
 - customize to your needs
 - localizable
 
-# credits
+## credits
 
 - logo https://www.canva.com/design
 - Dompdf https://github.com/dompdf/dompdf
 - Twig https://github.com/twigphp/Twig
 
-# twig doc
-
-https://twig.symfony.com/doc/3.x/templates.html
-
-# clean code
+## clean code
 
 ```sh
 vendor/bin/php-cs-fixer fix
