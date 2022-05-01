@@ -2,6 +2,6 @@
 <tr>
     <td>{{ product.name }}</td>
     <td>{{ product.quantity }}</td>
-    <td>{{ product.subtotal }}</td>
+    <td>{{ product.subtotal|format_number({fraction_digit: 2}, locale='fr') }}</td>
 </tr>
 {% endfor %}

@@ -65,14 +65,14 @@
     <tr>
         <td></td>
         <td class="right">Sub-total</td>
-        <td>{{ invoice.subtotal }}</td>
+        <td>{{ invoice.subtotal|format_number({fraction_digit: 2}, locale='fr') }}</td>
     </tr>
     {% if invoice.discount %}
     {{ include('discount.twig') }}
     {% endif %}
     <tr>
         <td colspan="2" class="right bold">Total ({{ invoice.currency }})</td>
-        <td class="bold">{{ invoice.total }}</td>
+        <td class="bold">{{ invoice.total|format_number({fraction_digit: 2}, locale='fr') }}</td>
     </tr>
 </table>
 

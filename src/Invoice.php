@@ -6,6 +6,7 @@ use DateTime;
 use Dompdf\Dompdf;
 use Twig\Loader\FilesystemLoader;
 use Twig\Environment;
+use Twig\Extra\Intl\IntlExtension;
 
 class Invoice
 {
@@ -35,6 +36,9 @@ class Invoice
         $twig = new Environment($loader, [
             //'cache' => '/path/to/compilation_cache',
         ]);
+
+        // support for number formatting
+        $twig->addExtension(new IntlExtension());
 
         return $twig->render('invoice.twig', [
             'invoice' => $this,
