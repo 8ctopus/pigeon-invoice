@@ -55,8 +55,8 @@ $dompdf = new Dompdf();
 $options = $dompdf->getOptions();
 $options->setIsHtml5ParserEnabled(true);
 
-// required to add logo but can have security implications
-$options->setChroot(__DIR__ .'/images');
+// required to add logo and css but can have security implications
+$options->setChroot(__DIR__);
 $dompdf->loadHtml($invoiceHtml);
 
 $dompdf->setPaper('A4', 'portrait');
