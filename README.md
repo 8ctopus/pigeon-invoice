@@ -1,6 +1,6 @@
-# Pigeon invoices
+# The pigeon invoice
 
-A php package to create pdf and html invoices.
+The pigeon is a php package to create pdf and html invoices.
 
 ![invoice demo screenshot](screenshot.png)
 
