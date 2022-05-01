@@ -22,6 +22,7 @@ class Invoice
     protected Entity $buyer;
     protected array $products;
     protected ?Discount $discount;
+    protected ?Tax $tax;
 
     public function __construct(string $rootDir, string $templatesDir, string $locale)
     {
@@ -31,6 +32,7 @@ class Invoice
 
         $this->products = [];
         $this->discount = null;
+        $this->tax = null;
     }
 
     public function renderHtml() : string
@@ -128,6 +130,11 @@ class Invoice
         $this->discount = $discount;
     }
 
+    public function addTax(?Tax $tax) : void
+    {
+        $this->tax = $tax;
+    }
+
     public function products() : array
     {
         return $this->products;
@@ -169,13 +176,14 @@ class Invoice
         return $subtotal;
     }
 
+    public function taxAmount() : float
+    {
+        return $this->subtotal() * (1 + $this->tax?->percentage());
+    }
+
     public function total() : float
     {
-        if (!$this->discount) {
-            return $this->subtotal();
-        }
-
-        $total = $this->subtotal() - $this->discount->price();
+        $total = ($this->subtotal() - $this->discount?->price()) * (1 + $this->tax?->percentage());
 
         assert($total > 0);
 
@@ -185,5 +193,10 @@ class Invoice
     public function discount() : ?Discount
     {
         return $this->discount;
+    }
+
+    public function tax() : ?Tax
+    {
+        return $this->tax;
     }
 }

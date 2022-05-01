@@ -70,6 +70,9 @@
     {% if invoice.discount %}
     {{ include('discount.twig') }}
     {% endif %}
+    {% if invoice.tax %}
+    {{ include('tax.twig') }}
+    {% endif %}
     <tr>
         <td colspan="2" class="right bold">Total ({{ invoice.currency }})</td>
         <td class="bold">{{ invoice.total|format_number({fraction_digit: 2}) }}</td>

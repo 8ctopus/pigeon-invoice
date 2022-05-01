@@ -6,6 +6,7 @@ use oct8pus\Invoice\Discount;
 use oct8pus\Invoice\Invoice;
 use oct8pus\Invoice\Person;
 use oct8pus\Invoice\Product;
+use oct8pus\Invoice\Tax;
 
 require_once './vendor/autoload.php';
 
@@ -25,6 +26,9 @@ $locale = 'ru';
 $invoice = new Invoice(__DIR__, __DIR__ .'/templates/', $locale);
 $invoice->addSeller($seller);
 $invoice->addBuyer($buyer);
+
+// add tax
+$invoice->addTax(new Tax("VAT", 0.21));
 
 $invoice->addDate(new DateTime('28-04-2022'));
 $invoice->addTransactionId("EN43UD6JA7I2LNBC17");
