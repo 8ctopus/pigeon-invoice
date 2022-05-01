@@ -36,7 +36,6 @@ $invoice->addProduct(new Product("Product 3", 3.99, 3, 1.000));
 $invoice->addDiscount(new Discount("Special Offer", 10.00));
 
 file_put_contents('invoice.html', $invoice->renderHtml());
-
 file_put_contents('invoice.pdf', $invoice->renderPdf());
 
 /*
