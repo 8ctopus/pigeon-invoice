@@ -7,8 +7,10 @@ A php package to create pdf and html invoices.
 ## features
 
 - pdf / html invoice
-- customize to your needs
+- twig templates engine
 - localizable
+- discount
+- tax
 
 ## demo
 
