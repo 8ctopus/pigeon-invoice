@@ -26,7 +26,7 @@
         <th>Invoice number</th>
     </tr>
     <tr>
-        <td>{{ invoice.date }}</td>
+        <td>{{ invoice.date|format_date('full') }}</td>
         <td>{{ invoice.transactionId }}</td>
     </tr>
     <tr>

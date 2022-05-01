@@ -152,7 +152,7 @@ class Invoice
 
     public function date() : string
     {
-        return $this->date->format('F j, Y');
+        return $this->date->format('Y-m-d');
     }
 
     public function transactionId() : string
