@@ -1,6 +1,6 @@
-# invoices for software
+# Pigeon invoices
 
-Create pdf invoices for software.
+A php package to create pdf and html invoices.
 
 ![invoice demo screenshot](screenshot.png)
 
@@ -19,9 +19,9 @@ Create pdf invoices for software.
 
 ## credits
 
-- logo https://www.canva.com/design
 - Dompdf https://github.com/dompdf/dompdf
 - Twig https://github.com/twigphp/Twig
+- logo https://www.canva.com/design
 
 ## clean code
 
