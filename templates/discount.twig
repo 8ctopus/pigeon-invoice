@@ -1,8 +1,4 @@
 <tr>
-    <th colspan="3">Discount</th>
-    <th></th>
-</tr>
-<tr>
-    <td colspan="3">{{ invoice.discount.name }}</td>
-    <td>{{ invoice.discount.price|format_number({fraction_digit: 2}) }}</td>
+    <td colspan="3" class="right">Discount {{ invoice.discount.name }}</td>
+    <td>- {{ invoice.discount.price|format_number({fraction_digit: 2}) }}</td>
 </tr>
