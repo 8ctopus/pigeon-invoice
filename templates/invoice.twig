@@ -55,16 +55,17 @@
     </tr>
 </table>
 
-<table id="2">
+<table id="products">
     <tr>
-        <th>Items purchased</th>
+        <th>Item</th>
         <th>Quantity</th>
-        <th>Price</th>
+        <th>Unit price</th>
+        <th>Amount</th>
     </tr>
     {{ include('products.twig') }}
     <tr>
         <td></td>
-        <td class="right">Sub-total</td>
+        <td colspan="2" class="right">Sub-total</td>
         <td>{{ invoice.subtotal|format_number({fraction_digit: 2}) }}</td>
     </tr>
     {% if invoice.discount %}
@@ -74,7 +75,7 @@
     {{ include('tax.twig') }}
     {% endif %}
     <tr>
-        <td colspan="2" class="right bold">Total ({{ invoice.currency }})</td>
+        <td colspan="3" class="right bold">Total ({{ invoice.currency }})</td>
         <td class="bold">{{ invoice.total|format_number({fraction_digit: 2}) }}</td>
     </tr>
 </table>
