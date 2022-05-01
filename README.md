@@ -2,6 +2,8 @@
 
 Create pdf invoices for software.
 
+![invoice demo screenshot](screenshot.png)
+
 ## features
 
 - pdf / html invoice
