@@ -3,6 +3,8 @@
 namespace oct8pus\Invoice;
 
 use DateTime;
+use Twig\Loader\FilesystemLoader;
+use Twig\Environment;
 
 class Invoice
 {
@@ -13,11 +15,27 @@ class Invoice
     protected Entity $buyer;
     protected array $products;
     protected ?Discount $discount;
+    protected string $templatesDir;
 
-    public function __construct()
+    public function __construct(string $templatesDir)
     {
+        $this->templatesDir = $templatesDir;
+
         $this->products = [];
         $this->discount = null;
+    }
+
+    public function render() : string
+    {
+        $loader = new FilesystemLoader($this->templatesDir);
+
+        $twig = new Environment($loader, [
+            //'cache' => '/path/to/compilation_cache',
+        ]);
+
+        return $twig->render('invoice.twig', [
+            'invoice' => $this,
+        ]);
     }
 
     public function __toString() : string

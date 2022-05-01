@@ -7,8 +7,6 @@ use oct8pus\Invoice\Discount;
 use oct8pus\Invoice\Invoice;
 use oct8pus\Invoice\Person;
 use oct8pus\Invoice\Product;
-use Twig\Loader\FilesystemLoader;
-use Twig\Environment;
 
 require_once './vendor/autoload.php';
 
@@ -23,7 +21,7 @@ $seller->addEmail('hello@widgets.ru');
 $address = new Address("Krasnoarmeyskaya 1", "", "620026", "Yekaterinburg", "Russia");
 $buyer = new Person("Yuri", "Kamasov", $address);
 
-$invoice = new Invoice();
+$invoice = new Invoice(__DIR__ .'/templates/');
 $invoice->addSeller($seller);
 $invoice->addBuyer($buyer);
 
@@ -38,16 +36,7 @@ $invoice->addProduct(new Product("Product 3", 3.99, 3, 1.000));
 
 $invoice->addDiscount(new Discount("Special Offer", 10.00));
 
-$loader = new FilesystemLoader('./templates');
-
-$twig = new Environment($loader, [
-    //'cache' => '/path/to/compilation_cache',
-]);
-
-// render invoice
-$invoiceHtml = $twig->render('invoice.twig', [
-    'invoice' => $invoice,
-]);
+$invoiceHtml = $invoice->render();
 
 file_put_contents('invoice.html', $invoiceHtml);
 
