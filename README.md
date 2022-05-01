@@ -4,9 +4,16 @@ Create pdf invoices for software.
 
 ## features
 
-- html / pdf invoice
+- pdf / html invoice
 - customize to your needs
 - localizable
+
+## demo
+
+- git clone the project
+- `composer install`
+- `php index.php`
+- check `invoice.pdf` / `invoice.html`
 
 ## credits
 
