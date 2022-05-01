@@ -64,9 +64,8 @@
     </tr>
     {{ include('products.twig') }}
     <tr>
-        <td></td>
-        <td colspan="2" class="right">Sub-total</td>
-        <td>{{ invoice.subtotal|format_number({fraction_digit: 2}) }}</td>
+        <th colspan="3" class="right">Sub-total</th>
+        <th>{{ invoice.subtotal|format_number({fraction_digit: 2}) }}</th>
     </tr>
     {% if invoice.discount %}
     {{ include('discount.twig') }}
