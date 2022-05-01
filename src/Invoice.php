@@ -178,12 +178,12 @@ class Invoice
 
     public function taxAmount() : float
     {
-        return $this->subtotal() * (1 + $this->tax?->percentage());
+        return ($this->subtotal() - $this->discount?->price()) * $this->tax?->percentage();
     }
 
     public function total() : float
     {
-        $total = ($this->subtotal() - $this->discount?->price()) * (1 + $this->tax?->percentage());
+        $total = $this->subtotal() - $this->discount?->price() + $this->taxAmount();
 
         assert($total > 0);
 

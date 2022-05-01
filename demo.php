@@ -21,7 +21,7 @@ $seller->addEmail('hello@widgets.ru');
 $address = new Address("Krasnoarmeyskaya 1", "", "620026", "Yekaterinburg", "Russia");
 $buyer = new Person("Yuri", "Kamasov", $address);
 
-$locale = 'ru';
+$locale = 'en';
 
 $invoice = new Invoice(__DIR__, __DIR__ .'/templates/', $locale);
 $invoice->addSeller($seller);
