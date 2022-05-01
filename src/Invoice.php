@@ -3,6 +3,7 @@
 namespace oct8pus\Invoice;
 
 use DateTime;
+use Locale;
 use Dompdf\Dompdf;
 use Twig\Loader\FilesystemLoader;
 use Twig\Environment;
@@ -10,6 +11,10 @@ use Twig\Extra\Intl\IntlExtension;
 
 class Invoice
 {
+    protected string $templatesDir;
+    protected string $rootDir;
+    protected string $locale;
+
     protected DateTime $date;
     protected string $transactionId;
     protected string $currency;
@@ -17,13 +22,12 @@ class Invoice
     protected Entity $buyer;
     protected array $products;
     protected ?Discount $discount;
-    protected string $templatesDir;
-    protected string $rootDir;
 
-    public function __construct(string $rootDir, string $templatesDir)
+    public function __construct(string $rootDir, string $templatesDir, string $locale)
     {
         $this->rootDir = $rootDir;
         $this->templatesDir = $templatesDir;
+        $this->locale = $locale;
 
         $this->products = [];
         $this->discount = null;
@@ -36,6 +40,8 @@ class Invoice
         $twig = new Environment($loader, [
             //'cache' => '/path/to/compilation_cache',
         ]);
+
+        Locale::setDefault($this->locale);
 
         // support for number formatting
         $twig->addExtension(new IntlExtension());

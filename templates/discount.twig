@@ -4,5 +4,5 @@
 </tr>
 <tr>
     <td colspan="2">{{ invoice.discount.name }}</td>
-    <td>{{ invoice.discount.price|format_number({fraction_digit: 2}, locale='fr') }}</td>
+    <td>{{ invoice.discount.price|format_number({fraction_digit: 2}) }}</td>
 </tr>
