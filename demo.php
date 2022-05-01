@@ -1,6 +1,5 @@
 <?php
 
-use Dompdf\Dompdf;
 use oct8pus\Invoice\Address;
 use oct8pus\Invoice\Company;
 use oct8pus\Invoice\Discount;
@@ -21,7 +20,7 @@ $seller->addEmail('hello@widgets.ru');
 $address = new Address("Krasnoarmeyskaya 1", "", "620026", "Yekaterinburg", "Russia");
 $buyer = new Person("Yuri", "Kamasov", $address);
 
-$invoice = new Invoice(__DIR__ .'/templates/');
+$invoice = new Invoice(__DIR__, __DIR__ .'/templates/');
 $invoice->addSeller($seller);
 $invoice->addBuyer($buyer);
 
@@ -36,25 +35,9 @@ $invoice->addProduct(new Product("Product 3", 3.99, 3, 1.000));
 
 $invoice->addDiscount(new Discount("Special Offer", 10.00));
 
-$invoiceHtml = $invoice->render();
+file_put_contents('invoice.html', $invoice->renderHtml());
 
-file_put_contents('invoice.html', $invoiceHtml);
-
-// convert invoice to pdf
-$dompdf = new Dompdf();
-
-$options = $dompdf->getOptions();
-$options->setIsHtml5ParserEnabled(true);
-
-// required to add logo and css but can have security implications
-$options->setChroot(__DIR__);
-$dompdf->loadHtml($invoiceHtml);
-
-$dompdf->setPaper('A4', 'portrait');
-
-$dompdf->render();
-
-file_put_contents('invoice.pdf', $dompdf->output());
+file_put_contents('invoice.pdf', $invoice->renderPdf());
 
 /*
 // output pdf to browser

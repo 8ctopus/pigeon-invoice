@@ -3,6 +3,7 @@
 namespace oct8pus\Invoice;
 
 use DateTime;
+use Dompdf\Dompdf;
 use Twig\Loader\FilesystemLoader;
 use Twig\Environment;
 
@@ -16,16 +17,18 @@ class Invoice
     protected array $products;
     protected ?Discount $discount;
     protected string $templatesDir;
+    protected string $rootDir;
 
-    public function __construct(string $templatesDir)
+    public function __construct(string $rootDir, string $templatesDir)
     {
+        $this->rootDir = $rootDir;
         $this->templatesDir = $templatesDir;
 
         $this->products = [];
         $this->discount = null;
     }
 
-    public function render() : string
+    public function renderHtml() : string
     {
         $loader = new FilesystemLoader($this->templatesDir);
 
@@ -36,6 +39,29 @@ class Invoice
         return $twig->render('invoice.twig', [
             'invoice' => $this,
         ]);
+    }
+
+    public function renderPdf() : string
+    {
+        $html = $this->renderHtml();
+
+        // convert invoice to pdf
+        $dompdf = new Dompdf();
+
+        $options = $dompdf->getOptions();
+
+        $dompdf->setPaper('A4', 'portrait');
+
+        // required to add logo and css but can have security implications
+        $options->setChroot($this->rootDir);
+
+        $dompdf->loadHtml($this->renderHtml());
+
+        $options->setIsHtml5ParserEnabled(true);
+
+        $dompdf->render();
+
+        return $dompdf->output();
     }
 
     public function __toString() : string
