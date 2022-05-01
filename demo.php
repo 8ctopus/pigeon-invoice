@@ -12,6 +12,8 @@ use Twig\Environment;
 
 require_once './vendor/autoload.php';
 
+(new \NunoMaduro\Collision\Provider)->register();
+
 $address = new Address("16 Leo Tolstoy Street", "", "119021", "Moscow", "Russia");
 $seller = new Company("Widgets Inc.", $address);
 
