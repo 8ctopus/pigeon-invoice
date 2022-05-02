@@ -16,7 +16,7 @@ class Invoice
     protected string $locale;
 
     protected DateTime $date;
-    protected string $transactionId;
+    protected string $number;
     protected string $currency;
     protected Entity $seller;
     protected Entity $buyer;
@@ -82,7 +82,7 @@ class Invoice
         $result .= "{$this->buyer}\n";
 
         $result .= $this->date->format('Y-m-d') . "\n";
-        $result .= "{$this->transactionId}\n";
+        $result .= "{$this->number}\n";
 
         $total = 0;
 
@@ -115,9 +115,9 @@ class Invoice
         $this->date = $date;
     }
 
-    public function addTransactionId(string $transactionId) : void
+    public function addnumber(string $number) : void
     {
-        $this->transactionId = $transactionId;
+        $this->number = $number;
     }
 
     public function addCurrency(string $currency) : void
@@ -155,9 +155,9 @@ class Invoice
         return $this->date->format('Y-m-d');
     }
 
-    public function transactionId() : string
+    public function number() : string
     {
-        return $this->transactionId;
+        return $this->number;
     }
 
     public function currency() : string

@@ -31,7 +31,7 @@ $invoice->addBuyer($buyer);
 $invoice->addTax(new Tax("VAT", 0.21));
 
 $invoice->addDate(new DateTime('28-04-2022'));
-$invoice->addTransactionId("EN43UD6JA7I2LNBC17");
+$invoice->addNumber("EN43UD6JA7I2LNBC17");
 $invoice->addCurrency("$");
 
 // add products
