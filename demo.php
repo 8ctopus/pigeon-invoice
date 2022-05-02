@@ -1,11 +1,12 @@
 <?php
 
+use oct8pus\Extend\Item;
 use oct8pus\Invoice\Address;
 use oct8pus\Invoice\Company;
 use oct8pus\Invoice\Discount;
 use oct8pus\Invoice\Invoice;
 use oct8pus\Invoice\Person;
-use oct8pus\Extend\Item;
+use oct8pus\Invoice\Shipping;
 use oct8pus\Invoice\Tax;
 
 require_once './vendor/autoload.php';
@@ -49,7 +50,9 @@ $invoice
     ->addItem((new Item())->setName("Item 2")->setPrice(9.99)->setQuantity(2)->setVersion(1.000))
     ->addItem((new Item())->setName("Item 3")->setPrice(3.99)->setQuantity(3)->setVersion(1.000))
 
-    ->setDiscount(new Discount("Special Offer", 10.00));
+    ->setDiscount((new Discount())->setName("Special Offer")->setPrice(10.00))
+
+    ->setShipping((new Shipping())->setName("Shipping")->setPrice(5.00));
 
 $html = $invoice->renderHtml();
 

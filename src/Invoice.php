@@ -22,6 +22,7 @@ class Invoice
     protected Entity $buyer;
     protected array $items;
     protected ?Discount $discount;
+    protected ?Shipping $shipping;
     protected ?Tax $tax;
 
     public function __construct(string $rootDir, string $templatesDir, string $locale)
@@ -32,6 +33,7 @@ class Invoice
 
         $this->items = [];
         $this->discount = null;
+        $this->shipping = null;
         $this->tax = null;
     }
 
@@ -138,12 +140,12 @@ class Invoice
 
     public function taxAmount() : float
     {
-        return ($this->subtotal() - $this->discount?->price()) * $this->tax?->percentage();
+        return ($this->subtotal() + $this->shipping?->price() - $this->discount?->price()) * $this->tax?->percentage();
     }
 
     public function total() : float
     {
-        $total = $this->subtotal() - $this->discount?->price() + $this->taxAmount();
+        $total = $this->subtotal() + $this->shipping?->price() - $this->discount?->price() + $this->taxAmount();
 
         assert($total > 0);
 
@@ -153,6 +155,11 @@ class Invoice
     public function discount() : ?Discount
     {
         return $this->discount;
+    }
+
+    public function shipping() : ?Shipping
+    {
+        return $this->shipping;
     }
 
     public function tax() : ?Tax
@@ -199,6 +206,12 @@ class Invoice
     public function setDiscount(?Discount $discount) : self
     {
         $this->discount = $discount;
+        return $this;
+    }
+
+    public function setShipping(?Shipping $shipping) : self
+    {
+        $this->shipping = $shipping;
         return $this;
     }
 

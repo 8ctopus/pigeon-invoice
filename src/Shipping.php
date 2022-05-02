@@ -2,7 +2,7 @@
 
 namespace oct8pus\Invoice;
 
-class Discount
+class Shipping
 {
     protected string $name;
     protected float $price;
