@@ -7,10 +7,10 @@ class Tax
     protected string $name;
     protected float $percentage;
 
-    public function __construct(string $name, float $percentage)
+    public function __construct()
     {
-        $this->name = $name;
-        $this->percentage = $percentage;
+        $this->name = "";
+        $this->percentage = 0;
     }
 
     public function name() : string
@@ -21,5 +21,17 @@ class Tax
     public function percentage() : float
     {
         return $this->percentage;
+    }
+
+    public function setName(string $name) : self
+    {
+        $this->name = $name;
+        return $this;
+    }
+
+    public function setPercentage(string $percentage) : self
+    {
+        $this->percentage = $percentage;
+        return $this;
     }
 }

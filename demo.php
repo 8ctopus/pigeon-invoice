@@ -39,7 +39,7 @@ $invoice
     ->setBuyer($buyer)
 
     // add tax
-    ->setTax(new Tax("VAT", 0.21))
+    ->setTax((new Tax())->setName("VAT")->setPercentage(0.21))
 
     ->setDate(new DateTime('28-04-2022'))
     ->setNumber("EN43UD6JA7I2LNBC17")
