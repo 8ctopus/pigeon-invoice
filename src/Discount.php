@@ -7,6 +7,12 @@ class Discount
     protected string $name;
     protected float $price;
 
+    public function __construct()
+    {
+        $this->name = '';
+        $this->price = 0;
+    }
+
     public function name() : string
     {
         return $this->name;

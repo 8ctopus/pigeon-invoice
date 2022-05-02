@@ -9,6 +9,8 @@ class Company extends Entity
     public function __construct()
     {
         parent::__construct();
+
+        $this->name = '';
     }
 
     public function __toString() : string

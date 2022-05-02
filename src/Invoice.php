@@ -15,12 +15,15 @@ class Invoice
     protected string $rootDir;
     protected string $locale;
 
-    protected DateTime $date;
+    protected ?DateTime $date;
     protected string $number;
     protected string $currency;
-    protected Entity $seller;
-    protected Entity $buyer;
+
+    protected ?Entity $seller;
+    protected ?Entity $buyer;
+
     protected array $items;
+
     protected ?Discount $discount;
     protected ?Shipping $shipping;
     protected ?Tax $tax;
@@ -31,7 +34,15 @@ class Invoice
         $this->templatesDir = $templatesDir;
         $this->locale = $locale;
 
+        $this->date = null;
+        $this->number = '';
+        $this->currency = '';
+
+        $this->seller = null;
+        $this->buyer = null;
+
         $this->items = [];
+
         $this->discount = null;
         $this->shipping = null;
         $this->tax = null;
@@ -102,12 +113,12 @@ class Invoice
         return $this->items;
     }
 
-    public function seller() : Entity
+    public function seller() : ?Entity
     {
         return $this->seller;
     }
 
-    public function buyer() : Entity
+    public function buyer() : ?Entity
     {
         return $this->buyer;
     }

@@ -10,6 +10,8 @@ class Item
 
     public function __construct()
     {
+        $this->name = '';
+        $this->price = 0;
         $this->quantity = 1;
     }
 

@@ -9,6 +9,8 @@ abstract class Entity extends Address
     public function __construct()
     {
         parent::__construct();
+
+        $this->email = '';
     }
 
     public function __toString() : string
