@@ -10,9 +10,9 @@
     <tr>
         <td class="company">
             <strong>{{ invoice.seller.name }}</strong><br>
-            {{ invoice.seller.address.street1 }}<br>
-            {{ invoice.seller.address.zip}} {{ invoice.seller.address.city }} <br>
-            {{ invoice.seller.address.country }}<br>
+            {{ invoice.seller.street1 }}<br>
+            {{ invoice.seller.zip}} {{ invoice.seller.city }} <br>
+            {{ invoice.seller.country }}<br>
             <br>
             <a href="{{ invoice.seller.website }}">{{ invoice.seller.website }}</a><br>
             <a href="mailto:{{ invoice.seller.email }}">{{ invoice.seller.email }}</a>
@@ -38,19 +38,19 @@
         <td></td>
     </tr>
     <tr>
-        <td>{{ invoice.buyer.address.street1 }}</td>
+        <td>{{ invoice.buyer.street1 }}</td>
         <td></td>
     </tr>
     <tr>
-        <td>{{ invoice.buyer.address.street2 }}</td>
+        <td>{{ invoice.buyer.street2 }}</td>
         <td></td>
     </tr>
     <tr>
-        <td>{{ invoice.buyer.address.zip }} {{ invoice.buyer.address.city }}</td>
+        <td>{{ invoice.buyer.zip }} {{ invoice.buyer.city }}</td>
         <td></td>
     </tr>
     <tr>
-        <td>{{ invoice.buyer.address.country }}</td>
+        <td>{{ invoice.buyer.country }}</td>
         <td></td>
     </tr>
 </table>

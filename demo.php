@@ -16,16 +16,22 @@ $seller = new Company();
 
 $seller
     ->setName("Widgets LLC")
-    ->setAddress(new Address("16 Leo Tolstoy Street", "", "119021", "Moscow", "Russia"))
     ->setWebsite('https://www.widgets.ru')
-    ->setEmail('hello@widgets.ru');
+    ->setEmail('hello@widgets.ru')
+    ->setStreet1("16 Leo Tolstoy Street")
+    ->setZip("119021")
+    ->setCity("Moscow")
+    ->setCountry("Russia");
 
 $buyer = new Person();
 
 $buyer
     ->setFirstName("Yuri")
     ->setLastName("Kamasov")
-    ->setAddress(new Address("Krasnoarmeyskaya 1", "", "620026", "Yekaterinburg", "Russia"));
+    ->setStreet1("Krasnoarmeyskaya 1")
+    ->setZip("620026")
+    ->setCity("Yekaterinburg")
+    ->setCountry("Russia");
 
 $locale = 'en';
 

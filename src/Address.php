@@ -10,13 +10,13 @@ class Address
     protected string $city;
     protected string $country;
 
-    public function __construct(string $street1, string $street2, string $zip, string $city, string $country)
+    public function __construct()
     {
-        $this->street1 = $street1;
-        $this->street2 = $street2;
-        $this->zip = $zip;
-        $this->city = $city;
-        $this->country = $country;
+        $this->street1 = "";
+        $this->street2 = "";
+        $this->zip = "";
+        $this->city = "";
+        $this->country = "";
     }
 
     public function __toString() : string
@@ -56,5 +56,35 @@ class Address
     public function country() : string
     {
         return $this->country;
+    }
+
+    public function setStreet1(string $street1) : self
+    {
+        $this->street1 = $street1;
+        return $this;
+    }
+
+    public function setStreet2(string $street2) : self
+    {
+        $this->street2 = $street2;
+        return $this;
+    }
+
+    public function setZip(string $zip) : self
+    {
+        $this->zip = $zip;
+        return $this;
+    }
+
+    public function setCity(string $city) : self
+    {
+        $this->city = $city;
+        return $this;
+    }
+
+    public function setCountry(string $country) : self
+    {
+        $this->country = $country;
+        return $this;
     }
 }
