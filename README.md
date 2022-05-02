@@ -15,9 +15,14 @@ Customize and localize using the `Twig` template engine and `Dompdf`.
 ## demo
 
 - git clone the project
-- `composer install`
-- `php demo.php`
-- check result in `invoice.pdf` / `invoice.html`
+-
+
+```sh
+composer install
+php demo.php
+```
+
+- check generated invoices `invoice.pdf` and `invoice.html`.
 
 ## install
 
