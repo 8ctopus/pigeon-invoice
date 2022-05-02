@@ -95,54 +95,6 @@ class Invoice
         return $result . "\t\t\ttotal {$total}\n";
     }
 
-    public function addProduct(Product $product) : self
-    {
-        array_push($this->products, $product);
-        return $this;
-    }
-
-    public function setSeller(Entity $seller) : self
-    {
-        $this->seller = $seller;
-        return $this;
-    }
-
-    public function setBuyer(Entity $buyer) : self
-    {
-        $this->buyer = $buyer;
-        return $this;
-    }
-
-    public function setDate(DateTime $date) : self
-    {
-        $this->date = $date;
-        return $this;
-    }
-
-    public function setNumber(string $number) : self
-    {
-        $this->number = $number;
-        return $this;
-    }
-
-    public function setCurrency(string $currency) : self
-    {
-        $this->currency = $currency;
-        return $this;
-    }
-
-    public function setDiscount(?Discount $discount) : self
-    {
-        $this->discount = $discount;
-        return $this;
-    }
-
-    public function setTax(?Tax $tax) : self
-    {
-        $this->tax = $tax;
-        return $this;
-    }
-
     public function products() : array
     {
         return $this->products;
@@ -206,5 +158,53 @@ class Invoice
     public function tax() : ?Tax
     {
         return $this->tax;
+    }
+
+    public function addProduct(Product $product) : self
+    {
+        array_push($this->products, $product);
+        return $this;
+    }
+
+    public function setSeller(Entity $seller) : self
+    {
+        $this->seller = $seller;
+        return $this;
+    }
+
+    public function setBuyer(Entity $buyer) : self
+    {
+        $this->buyer = $buyer;
+        return $this;
+    }
+
+    public function setDate(DateTime $date) : self
+    {
+        $this->date = $date;
+        return $this;
+    }
+
+    public function setNumber(string $number) : self
+    {
+        $this->number = $number;
+        return $this;
+    }
+
+    public function setCurrency(string $currency) : self
+    {
+        $this->currency = $currency;
+        return $this;
+    }
+
+    public function setDiscount(?Discount $discount) : self
+    {
+        $this->discount = $discount;
+        return $this;
+    }
+
+    public function setTax(?Tax $tax) : self
+    {
+        $this->tax = $tax;
+        return $this;
     }
 }
