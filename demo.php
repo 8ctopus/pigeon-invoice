@@ -12,7 +12,7 @@ require_once './vendor/autoload.php';
 
 (new \NunoMaduro\Collision\Provider())->register();
 
-$locale = 'en';
+$locale = 'ru';
 
 $invoice = (new Invoice(__DIR__, __DIR__ . '/templates/', $locale))
     ->setSeller((new Company())
