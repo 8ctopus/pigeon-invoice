@@ -2,6 +2,8 @@
 
 namespace oct8pus\Invoice;
 
+use Locale;
+
 class Person extends Entity
 {
     protected string $firstName;
@@ -37,7 +39,14 @@ class Person extends Entity
 
     public function name() : string
     {
-        return "{$this->firstName} {$this->lastName}";
+        switch (Locale::getDefault()) {
+            case 'ja':
+            case 'ru':
+                return "{$this->lastName} {$this->firstName}";
+
+            default:
+                return "{$this->firstName} {$this->lastName}";
+        }
     }
 
     public function setFirstName(string $firstName) : self
