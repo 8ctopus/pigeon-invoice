@@ -10,11 +10,15 @@ use oct8pus\Invoice\Tax;
 
 require_once './vendor/autoload.php';
 
+// command line error handler
 (new \NunoMaduro\Collision\Provider())->register();
 
-$locale = 'ru';
-
-$invoice = (new Invoice(__DIR__, __DIR__ . '/templates/', $locale))
+// create invoice
+$invoice = (new Invoice([
+    'rootDir' => __DIR__,
+    'templatesDir' => __DIR__ . '/templates/',
+    'locale' => 'ru'
+]))
     ->setSeller((new Company())
         ->setName('Widgets LLC')
         ->setWebsite('https://www.widgets.ru')

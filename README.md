@@ -44,9 +44,11 @@ use oct8pus\Invoice\Tax;
 
 require_once './vendor/autoload.php';
 
-$locale = 'en';
-
-$invoice = (new Invoice(__DIR__, __DIR__ . '/templates/', $locale))
+$invoice = (new Invoice([
+    'rootDir' => __DIR__,
+    'templatesDir' => __DIR__ . '/templates/',
+    'locale' => 'en'
+]))
     ->setSeller((new Company())
         ->setName('Widgets LLC')
         ->setWebsite('https://www.widgets.ru')

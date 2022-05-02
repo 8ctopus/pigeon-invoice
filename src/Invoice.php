@@ -28,11 +28,14 @@ class Invoice
     protected ?Shipping $shipping;
     protected ?Tax $tax;
 
-    public function __construct(string $rootDir, string $templatesDir, string $locale)
+    public function __construct(?array $settings)
     {
-        $this->rootDir = $rootDir;
-        $this->templatesDir = $templatesDir;
-        $this->locale = $locale;
+        // cast array to object
+        $settings = (object) $settings;
+
+        $this->rootDir = $settings->rootDir;
+        $this->templatesDir = $settings->templatesDir;
+        $this->locale = $settings->locale;
 
         $this->date = null;
         $this->number = '';
