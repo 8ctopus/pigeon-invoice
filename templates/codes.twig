@@ -1,6 +1,6 @@
-{% for product in invoice.products %}
+{% for item in invoice.items %}
 <tr>
-    <th colspan="2">{{ product.name }} v{{ product.version }}</th>
+    <th colspan="2">{{ item.name }} v{{ item.version }}</th>
 </tr>
 <tr>
     <td>First name</td>
@@ -12,6 +12,6 @@
 </tr>
 <tr>
     <td>Activation code</td>
-    <td>{{ product.code(invoice.buyer.firstName, invoice.buyer.secondName) }}</td>
+    <td>{{ item.code(invoice.buyer.firstName, invoice.buyer.secondName) }}</td>
 </tr>
 {% endfor %}

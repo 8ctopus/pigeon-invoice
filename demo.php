@@ -5,7 +5,7 @@ use oct8pus\Invoice\Company;
 use oct8pus\Invoice\Discount;
 use oct8pus\Invoice\Invoice;
 use oct8pus\Invoice\Person;
-use oct8pus\Extend\Product;
+use oct8pus\Extend\Item;
 use oct8pus\Invoice\Tax;
 
 require_once './vendor/autoload.php';
@@ -43,10 +43,10 @@ $invoice
     ->setNumber("EN43UD6JA7I2LNBC17")
     ->setCurrency("$")
 
-    // add products
-    ->addProduct(new Product("Product 1", 4.99, 1, 1.000))
-    ->addProduct(new Product("Product 2", 9.99, 2, 1.000))
-    ->addProduct(new Product("Product 3", 3.99, 3, 1.000))
+    // add items
+    ->addItem(new Item("Item 1", 4.99, 1, 1.000))
+    ->addItem(new Item("Item 2", 9.99, 2, 1.000))
+    ->addItem(new Item("Item 3", 3.99, 3, 1.000))
 
     ->setDiscount(new Discount("Special Offer", 10.00));
 

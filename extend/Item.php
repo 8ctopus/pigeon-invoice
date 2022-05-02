@@ -2,9 +2,9 @@
 
 namespace oct8pus\Extend;
 
-use oct8pus\Invoice\Product as BaseProduct;
+use oct8pus\Invoice\Item as BaseItem;
 
-class Product extends BaseProduct
+class Item extends BaseItem
 {
     protected float $version;
 

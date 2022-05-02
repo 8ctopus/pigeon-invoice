@@ -33,23 +33,23 @@ table#1 th {
     width: 50%;
 }
 
-table#products th,
-table#products td {
+table#items th,
+table#items td {
     padding-right: 1.5rem;
 }
 
-table#products th:nth-child(1) {
+table#items th:nth-child(1) {
     width: 50%;
 }
 
-table#products th:nth-child(2),
-table#products th:nth-child(3),
-table#products th:nth-child(4) {
+table#items th:nth-child(2),
+table#items th:nth-child(3),
+table#items th:nth-child(4) {
     width: 16.6%;
 }
 
-table#products th:last-child,
-table#products td:last-child {
+table#items th:last-child,
+table#items td:last-child {
     padding-right: 1.5rem;
     text-align: right;
 }

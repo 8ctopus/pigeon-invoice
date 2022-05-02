@@ -20,7 +20,7 @@ class Invoice
     protected string $currency;
     protected Entity $seller;
     protected Entity $buyer;
-    protected array $products;
+    protected array $items;
     protected ?Discount $discount;
     protected ?Tax $tax;
 
@@ -30,7 +30,7 @@ class Invoice
         $this->templatesDir = $templatesDir;
         $this->locale = $locale;
 
-        $this->products = [];
+        $this->items = [];
         $this->discount = null;
         $this->tax = null;
     }
@@ -86,18 +86,18 @@ class Invoice
 
         $total = 0;
 
-        foreach ($this->products as $product) {
-            $total += $product->subtotal();
+        foreach ($this->items as $items) {
+            $total += $items->subtotal();
 
-            $result .= "{$product->quantity()}\t{$product->name()}\t{$product->price()}\t{$product->subtotal()}\n";
+            $result .= "{$items->quantity()}\t{$items->name()}\t{$items->price()}\t{$items->subtotal()}\n";
         }
 
         return $result . "\t\t\ttotal {$total}\n";
     }
 
-    public function products() : array
+    public function items() : array
     {
-        return $this->products;
+        return $this->items;
     }
 
     public function seller() : Entity
@@ -129,8 +129,8 @@ class Invoice
     {
         $subtotal = 0;
 
-        foreach ($this->products as $product) {
-            $subtotal += $product->subtotal();
+        foreach ($this->items as $items) {
+            $subtotal += $items->subtotal();
         }
 
         return $subtotal;
@@ -160,9 +160,9 @@ class Invoice
         return $this->tax;
     }
 
-    public function addProduct(Product $product) : self
+    public function addItem(Item $item) : self
     {
-        array_push($this->products, $product);
+        array_push($this->items, $item);
         return $this;
     }
 
