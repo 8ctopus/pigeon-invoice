@@ -28,6 +28,8 @@ class Invoice
     protected ?Shipping $shipping;
     protected ?Tax $tax;
 
+    protected ?object $custom;
+
     public function __construct(?array $settings)
     {
         // cast array to object
@@ -49,6 +51,8 @@ class Invoice
         $this->discount = null;
         $this->shipping = null;
         $this->tax = null;
+
+        $this->custom = null;
     }
 
     public function __toString() : string
@@ -181,6 +185,11 @@ class Invoice
         return $this->tax;
     }
 
+    public function custom() : object
+    {
+        return $this->custom;
+    }
+
     public function addItem(Item $item) : self
     {
         array_push($this->items, $item);
@@ -233,5 +242,16 @@ class Invoice
     {
         $this->tax = $tax;
         return $this;
+    }
+
+    public function setCustomFields(array $fields) : self
+    {
+        $this->custom = (object) $fields;
+        return $this;
+/*
+        foreach ($fields as $name => $value) {
+            $this->custom->{$name} = $value;
+        }
+*/
     }
 }

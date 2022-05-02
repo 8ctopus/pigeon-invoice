@@ -49,7 +49,11 @@ $invoice = (new Invoice([
 
     ->setShipping((new Shipping())->setName('Shipping')->setPrice(5.00))
 
-    ->setTax((new Tax())->setName('VAT')->setPercentage(0.21));
+    ->setTax((new Tax())->setName('VAT')->setPercentage(0.21))
+
+    ->setCustomFields([
+        'notes' => 'Thank you for shopping with us!',
+    ]);
 
 $html = $invoice->renderHtml();
 
