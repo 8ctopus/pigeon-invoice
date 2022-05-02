@@ -35,9 +35,9 @@ $invoice->setNumber("EN43UD6JA7I2LNBC17");
 $invoice->setCurrency("$");
 
 // add products
-$invoice->setProduct(new Product("Product 1", 4.99, 1, 1.000));
-$invoice->setProduct(new Product("Product 2", 9.99, 2, 1.000));
-$invoice->setProduct(new Product("Product 3", 3.99, 3, 1.000));
+$invoice->addProduct(new Product("Product 1", 4.99, 1, 1.000));
+$invoice->addProduct(new Product("Product 2", 9.99, 2, 1.000));
+$invoice->addProduct(new Product("Product 3", 3.99, 3, 1.000));
 
 $invoice->setDiscount(new Discount("Special Offer", 10.00));
 

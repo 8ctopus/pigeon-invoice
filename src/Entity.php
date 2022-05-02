@@ -17,7 +17,7 @@ abstract class Entity
         return $this->address;
     }
 
-    public function setEmail(string $email)
+    public function setEmail(string $email) : void
     {
         $this->email = $email;
     }

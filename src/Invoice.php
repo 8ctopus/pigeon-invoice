@@ -95,7 +95,7 @@ class Invoice
         return $result . "\t\t\ttotal {$total}\n";
     }
 
-    public function setProduct(Product $product) : void
+    public function addProduct(Product $product) : void
     {
         array_push($this->products, $product);
     }
@@ -115,7 +115,7 @@ class Invoice
         $this->date = $date;
     }
 
-    public function setnumber(string $number) : void
+    public function setNumber(string $number) : void
     {
         $this->number = $number;
     }
