@@ -17,7 +17,7 @@ require_once './vendor/autoload.php';
 $invoice = (new Invoice([
     'rootDir' => __DIR__,
     'templatesDir' => __DIR__ . '/templates/',
-    'locale' => 'ru'
+    'locale' => 'ru',
 ]))
     ->setSeller((new Company())
         ->setName('Widgets LLC')
