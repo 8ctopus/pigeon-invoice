@@ -15,7 +15,7 @@ class Company extends Entity
 
     public function __toString() : string
     {
-        return "{$this->name}\n" . $this->address;
+        return "{$this->name}\n" . parent::__toString();
     }
 
     public function setWebsite(string $website) : self

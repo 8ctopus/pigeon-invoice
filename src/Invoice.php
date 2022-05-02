@@ -248,10 +248,5 @@ class Invoice
     {
         $this->custom = (object) $fields;
         return $this;
-/*
-        foreach ($fields as $name => $value) {
-            $this->custom->{$name} = $value;
-        }
-*/
     }
 }

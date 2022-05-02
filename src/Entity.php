@@ -15,7 +15,7 @@ abstract class Entity extends Address
 
     public function __toString() : string
     {
-        return $this->address;
+        return parent::__toString();
     }
 
     public function setEmail(string $email) : self

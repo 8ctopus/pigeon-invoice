@@ -109,3 +109,9 @@ https://twig.symfony.com/doc/3.x/
 ```sh
 vendor/bin/php-cs-fixer fix
 ```
+
+## tests
+
+```sh
+vendor/bin/phpunit --coverage-html coverage
+```

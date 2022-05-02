@@ -15,6 +15,11 @@ class Item
         $this->quantity = 1;
     }
 
+    public function __toString() : string
+    {
+        return "{$this->name} {$this->quantity} * {$this->price}\n";
+    }
+
     public function name() : string
     {
         return $this->name;
