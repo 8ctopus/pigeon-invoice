@@ -17,9 +17,10 @@ abstract class Entity
         return $this->address;
     }
 
-    public function setEmail(string $email) : void
+    public function setEmail(string $email) : self
     {
         $this->email = $email;
+        return $this;
     }
 
     public function isCompany() : bool
