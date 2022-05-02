@@ -17,7 +17,7 @@ Customize and localize using the `Twig` template engine and `Dompdf`.
 - git clone the project
 - `composer install`
 - `php demo.php`
-- check `invoice.pdf` / `invoice.html`
+- check result in `invoice.pdf` / `invoice.html`
 
 ## install
 
@@ -25,7 +25,7 @@ Customize and localize using the `Twig` template engine and `Dompdf`.
 composer require 8ctopus/pigeon-invoice
 ```
 
-See `demo.php` for more info
+See `demo.php` on how to use
 
 ## Twig templates reference documentation
 
