@@ -3,14 +3,14 @@
 The pigeon invoice package helps you create html and pdf invoices.
 Customize and localize using the `Twig` template engine and `Dompdf`.
 
-![invoice demo screenshot](screenshot.png)
-
 ## features
 
 - pdf / html invoice
-- includes discount and tax
-- customize using `Twig` template engine
+- includes shipping, discount and tax
+- fully customizable using `Twig` template engine
 - localizable
+
+![invoice demo screenshot](screenshot.png)
 
 ## demo
 
