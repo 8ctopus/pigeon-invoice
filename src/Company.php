@@ -6,11 +6,8 @@ class Company extends Entity
 {
     protected string $name;
 
-    public function __construct(string $name, Address $address)
+    public function __construct()
     {
-        $this->name = $name;
-
-        parent::__construct($address);
     }
 
     public function __toString() : string
@@ -27,6 +24,12 @@ class Company extends Entity
     public function isCompany() : bool
     {
         return true;
+    }
+
+    public function setName(string $name) : self
+    {
+        $this->name = $name;
+        return $this;
     }
 
     public function name() : string

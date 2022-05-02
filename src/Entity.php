@@ -4,17 +4,23 @@ namespace oct8pus\Invoice;
 
 abstract class Entity
 {
-    protected Address $address;
+    protected ?Address $address;
     protected string $email;
 
-    public function __construct(Address $address)
+    public function __construct()
     {
-        $this->address = $address;
+        $this->address = null;
     }
 
     public function __toString() : string
     {
         return $this->address;
+    }
+
+    public function setAddress(?Address $address) : self
+    {
+        $this->address = $address;
+        return $this;
     }
 
     public function setEmail(string $email) : self
@@ -39,7 +45,7 @@ abstract class Entity
 
     abstract public function secondName() : string;
 
-    public function address() : Address
+    public function address() : ?Address
     {
         return $this->address;
     }

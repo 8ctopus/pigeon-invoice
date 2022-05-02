@@ -12,20 +12,27 @@ require_once './vendor/autoload.php';
 
 (new \NunoMaduro\Collision\Provider)->register();
 
-$address = new Address("16 Leo Tolstoy Street", "", "119021", "Moscow", "Russia");
-$seller = new Company("Widgets Inc.", $address);
+$seller = new Company();
 
-$seller->setWebsite('https://www.widgets.ru')
+$seller
+    ->setName("Widgets LLC")
+    ->setAddress(new Address("16 Leo Tolstoy Street", "", "119021", "Moscow", "Russia"))
+    ->setWebsite('https://www.widgets.ru')
     ->setEmail('hello@widgets.ru');
 
-$address = new Address("Krasnoarmeyskaya 1", "", "620026", "Yekaterinburg", "Russia");
-$buyer = new Person("Yuri", "Kamasov", $address);
+$buyer = new Person();
+
+$buyer
+    ->setFirstName("Yuri")
+    ->setLastName("Kamasov")
+    ->setAddress(new Address("Krasnoarmeyskaya 1", "", "620026", "Yekaterinburg", "Russia"));
 
 $locale = 'en';
 
 $invoice = new Invoice(__DIR__, __DIR__ .'/templates/', $locale);
 
-$invoice->setSeller($seller)
+$invoice
+    ->setSeller($seller)
     ->setBuyer($buyer)
     // add tax
     ->setTax(new Tax("VAT", 0.21))

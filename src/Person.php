@@ -7,12 +7,12 @@ class Person extends Entity
     protected string $firstName;
     protected string $lastName;
 
-    public function __construct(string $firstName, string $lastName, Address $address)
+    public function __construct()
     {
-        $this->firstName = $firstName;
-        $this->lastName = $lastName;
+        $this->firstName = "";
+        $this->lastName = "";
 
-        parent::__construct($address);
+        parent::__construct();
     }
 
     public function __toString() : string
@@ -25,11 +25,6 @@ class Person extends Entity
         return true;
     }
 
-    public function name() : string
-    {
-        return "{$this->firstName} {$this->lastName}";
-    }
-
     public function firstName() : string
     {
         return $this->firstName;
@@ -38,5 +33,22 @@ class Person extends Entity
     public function secondName() : string
     {
         return $this->lastName;
+    }
+
+    public function name() : string
+    {
+        return "{$this->firstName} {$this->lastName}";
+    }
+
+    public function setFirstName(string $firstName) : self
+    {
+        $this->firstName = $firstName;
+        return $this;
+    }
+
+    public function setLastName(string $lastName) : self
+    {
+        $this->lastName = $lastName;
+        return $this;
     }
 }
