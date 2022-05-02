@@ -1,7 +1,14 @@
-# other
+# composer
 /vendor/
 
-/*.sublime-workspace
-/.php-cs-fixer.cache
+# phpunit
+/.phpunit.result.cache
+/coverage/
+
+# invoice samples
 /invoice.html
 /invoice.pdf
+
+# other
+/*.sublime-workspace
+/.php-cs-fixer.cache
