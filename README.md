@@ -12,6 +12,12 @@ Customize and localize using the `Twig` template engine and `Dompdf`.
 
 ![invoice demo screenshot](screenshot.png)
 
+## requirements
+
+- php > 8
+- ext-dom
+- ext-mbstring
+
 ## demo
 
 - git clone the project
