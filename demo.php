@@ -12,33 +12,25 @@ require_once './vendor/autoload.php';
 
 (new \NunoMaduro\Collision\Provider())->register();
 
-$seller = (new Company())
-    ->setName('Widgets LLC')
-    ->setWebsite('https://www.widgets.ru')
-    ->setEmail('hello@widgets.ru')
-    ->setStreet1('16 Leo Tolstoy Street')
-    ->setZip('119021')
-    ->setCity('Moscow')
-    ->setCountry('Russia');
-
-$buyer = (new Person())
-    ->setFirstName('Yuri')
-    ->setLastName('Kamasov')
-    ->setStreet1('Krasnoarmeyskaya 1')
-    ->setZip('620026')
-    ->setCity('Yekaterinburg')
-    ->setCountry('Russia');
-
 $locale = 'en';
 
-$invoice = new Invoice(__DIR__, __DIR__ . '/templates/', $locale);
+$invoice = (new Invoice(__DIR__, __DIR__ . '/templates/', $locale))
+    ->setSeller((new Company())
+        ->setName('Widgets LLC')
+        ->setWebsite('https://www.widgets.ru')
+        ->setEmail('hello@widgets.ru')
+        ->setStreet1('16 Leo Tolstoy Street')
+        ->setZip('119021')
+        ->setCity('Moscow')
+        ->setCountry('Russia'))
 
-$invoice
-    ->setSeller($seller)
-    ->setBuyer($buyer)
-
-    // add tax
-    ->setTax((new Tax())->setName('VAT')->setPercentage(0.21))
+    ->setBuyer((new Person())
+        ->setFirstName('Yuri')
+        ->setLastName('Kamasov')
+        ->setStreet1('Krasnoarmeyskaya 1')
+        ->setZip('620026')
+        ->setCity('Yekaterinburg')
+        ->setCountry('Russia'))
 
     ->setDate(new DateTime('28-04-2022'))
     ->setNumber('EN43UD6JA7I2LNBC17')
@@ -51,7 +43,9 @@ $invoice
 
     ->setDiscount((new Discount())->setName('Special Offer')->setPrice(10.00))
 
-    ->setShipping((new Shipping())->setName('Shipping')->setPrice(5.00));
+    ->setShipping((new Shipping())->setName('Shipping')->setPrice(5.00))
+
+    ->setTax((new Tax())->setName('VAT')->setPercentage(0.21));
 
 $html = $invoice->renderHtml();
 
