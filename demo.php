@@ -12,9 +12,7 @@ require_once './vendor/autoload.php';
 
 (new \NunoMaduro\Collision\Provider)->register();
 
-$seller = new Company();
-
-$seller
+$seller = (new Company())
     ->setName("Widgets LLC")
     ->setWebsite('https://www.widgets.ru')
     ->setEmail('hello@widgets.ru')
@@ -23,9 +21,7 @@ $seller
     ->setCity("Moscow")
     ->setCountry("Russia");
 
-$buyer = new Person();
-
-$buyer
+$buyer = (new Person())
     ->setFirstName("Yuri")
     ->setLastName("Kamasov")
     ->setStreet1("Krasnoarmeyskaya 1")
