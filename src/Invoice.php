@@ -95,42 +95,42 @@ class Invoice
         return $result . "\t\t\ttotal {$total}\n";
     }
 
-    public function addProduct(Product $product) : void
+    public function setProduct(Product $product) : void
     {
         array_push($this->products, $product);
     }
 
-    public function addSeller(Entity $seller) : void
+    public function setSeller(Entity $seller) : void
     {
         $this->seller = $seller;
     }
 
-    public function addBuyer(Entity $buyer) : void
+    public function setBuyer(Entity $buyer) : void
     {
         $this->buyer = $buyer;
     }
 
-    public function addDate(DateTime $date) : void
+    public function setDate(DateTime $date) : void
     {
         $this->date = $date;
     }
 
-    public function addnumber(string $number) : void
+    public function setnumber(string $number) : void
     {
         $this->number = $number;
     }
 
-    public function addCurrency(string $currency) : void
+    public function setCurrency(string $currency) : void
     {
         $this->currency = $currency;
     }
 
-    public function addDiscount(?Discount $discount) : void
+    public function setDiscount(?Discount $discount) : void
     {
         $this->discount = $discount;
     }
 
-    public function addTax(?Tax $tax) : void
+    public function setTax(?Tax $tax) : void
     {
         $this->tax = $tax;
     }

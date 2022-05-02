@@ -18,7 +18,7 @@ class Company extends Entity
         return "{$this->name}\n" . $this->address;
     }
 
-    public function addWebsite(string $website)
+    public function setWebsite(string $website)
     {
         $this->website = $website;
     }
