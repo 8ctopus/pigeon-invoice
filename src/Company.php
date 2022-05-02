@@ -8,6 +8,7 @@ class Company extends Entity
 
     public function __construct()
     {
+        parent::__construct();
     }
 
     public function __toString() : string
