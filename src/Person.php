@@ -11,8 +11,8 @@ class Person extends Entity
 
     public function __construct()
     {
-        $this->firstName = "";
-        $this->lastName = "";
+        $this->firstName = '';
+        $this->lastName = '';
 
         parent::__construct();
     }

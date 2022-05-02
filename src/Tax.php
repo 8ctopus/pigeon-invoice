@@ -9,7 +9,7 @@ class Tax
 
     public function __construct()
     {
-        $this->name = "";
+        $this->name = '';
         $this->percentage = 0;
     }
 

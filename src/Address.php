@@ -12,11 +12,11 @@ class Address
 
     public function __construct()
     {
-        $this->street1 = "";
-        $this->street2 = "";
-        $this->zip = "";
-        $this->city = "";
-        $this->country = "";
+        $this->street1 = '';
+        $this->street2 = '';
+        $this->zip = '';
+        $this->city = '';
+        $this->country = '';
     }
 
     public function __toString() : string

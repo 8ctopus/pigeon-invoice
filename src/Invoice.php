@@ -3,11 +3,11 @@
 namespace oct8pus\Invoice;
 
 use DateTime;
-use Locale;
 use Dompdf\Dompdf;
-use Twig\Loader\FilesystemLoader;
+use Locale;
 use Twig\Environment;
 use Twig\Extra\Intl\IntlExtension;
+use Twig\Loader\FilesystemLoader;
 
 class Invoice
 {
@@ -37,12 +37,31 @@ class Invoice
         $this->tax = null;
     }
 
+    public function __toString() : string
+    {
+        $result = "{$this->seller}\n";
+        $result .= "{$this->buyer}\n";
+
+        $result .= $this->date->format('Y-m-d') . "\n";
+        $result .= "{$this->number}\n";
+
+        $total = 0;
+
+        foreach ($this->items as $items) {
+            $total += $items->subtotal();
+
+            $result .= "{$items->quantity()}\t{$items->name()}\t{$items->price()}\t{$items->subtotal()}\n";
+        }
+
+        return $result . "\t\t\ttotal {$total}\n";
+    }
+
     public function renderHtml() : string
     {
         $loader = new FilesystemLoader($this->templatesDir);
 
         $twig = new Environment($loader, [
-            //'cache' => '/path/to/compilation_cache',
+            // 'cache' => '/path/to/compilation_cache',
         ]);
 
         Locale::setDefault($this->locale);
@@ -76,25 +95,6 @@ class Invoice
         $dompdf->render();
 
         return $dompdf->output();
-    }
-
-    public function __toString() : string
-    {
-        $result = "{$this->seller}\n";
-        $result .= "{$this->buyer}\n";
-
-        $result .= $this->date->format('Y-m-d') . "\n";
-        $result .= "{$this->number}\n";
-
-        $total = 0;
-
-        foreach ($this->items as $items) {
-            $total += $items->subtotal();
-
-            $result .= "{$items->quantity()}\t{$items->name()}\t{$items->price()}\t{$items->subtotal()}\n";
-        }
-
-        return $result . "\t\t\ttotal {$total}\n";
     }
 
     public function items() : array

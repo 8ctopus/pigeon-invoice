@@ -2,8 +2,6 @@
 
 namespace oct8pus\Invoice;
 
-use oct8pus\Invoice\Address;
-
 abstract class Entity extends Address
 {
     protected string $email;
