@@ -8,11 +8,9 @@ class Item
     protected float $price;
     protected int $quantity;
 
-    public function __construct(string $name, float $price, int $quantity)
+    public function __construct()
     {
-        $this->name = $name;
-        $this->price = $price;
-        $this->quantity = $quantity;
+        $this->quantity = 1;
     }
 
     public function name() : string
@@ -33,5 +31,23 @@ class Item
     public function subtotal() : float
     {
         return $this->quantity * $this->price;
+    }
+
+    public function setName($name) : self
+    {
+        $this->name = $name;
+        return $this;
+    }
+
+    public function setPrice($price) : self
+    {
+        $this->price = $price;
+        return $this;
+    }
+
+    public function setQuantity($quantity) : self
+    {
+        $this->quantity = $quantity;
+        return $this;
     }
 }

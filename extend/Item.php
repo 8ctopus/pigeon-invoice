@@ -8,11 +8,9 @@ class Item extends BaseItem
 {
     protected float $version;
 
-    public function __construct(string $name, float $price, int $quantity, float $version)
+    public function __construct()
     {
-        parent::__construct($name, $price, $quantity);
-
-        $this->version = $version;
+        parent::__construct();
     }
 
     public function version() : string
@@ -23,5 +21,11 @@ class Item extends BaseItem
     public function code(string $firstName, string $lastName) : string
     {
         return 'AAAA-BBBB-CCCC-DDDD';
+    }
+
+    public function setVersion(float $version) : self
+    {
+        $this->version = $version;
+        return $this;
     }
 }

@@ -36,6 +36,7 @@ $invoice = new Invoice(__DIR__, __DIR__ .'/templates/', $locale);
 $invoice
     ->setSeller($seller)
     ->setBuyer($buyer)
+
     // add tax
     ->setTax(new Tax("VAT", 0.21))
 
@@ -44,9 +45,9 @@ $invoice
     ->setCurrency("$")
 
     // add items
-    ->addItem(new Item("Item 1", 4.99, 1, 1.000))
-    ->addItem(new Item("Item 2", 9.99, 2, 1.000))
-    ->addItem(new Item("Item 3", 3.99, 3, 1.000))
+    ->addItem((new Item())->setName("Item 1")->setPrice(4.99)->setQuantity(1)->setVersion(1.000))
+    ->addItem((new Item())->setName("Item 2")->setPrice(9.99)->setQuantity(2)->setVersion(1.000))
+    ->addItem((new Item())->setName("Item 3")->setPrice(3.99)->setQuantity(3)->setVersion(1.000))
 
     ->setDiscount(new Discount("Special Offer", 10.00));
 
