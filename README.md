@@ -7,7 +7,7 @@ You can customize and localize it using the `Twig` template engine. `Dompdf` is 
 
 - pdf / html invoice
 - includes shipping, discount and tax
-- fully customizable using `Twig` template engine
+- fully customizable thanks to the `Twig` template engine
 - localizable
 
 ![invoice demo screenshot](screenshot.png)
