@@ -6,6 +6,10 @@ body {
     line-height: 125%;
 }
 
+a {
+    color: #CB6CE6;
+}
+
 table {
     margin: 0px;
     border: none;
