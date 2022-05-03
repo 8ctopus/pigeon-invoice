@@ -3,6 +3,10 @@
 use oct8pus\Invoice\Item;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @internal
+ * @covers oct8pus\Invoice\Item
+ */
 final class ItemTest extends TestCase
 {
     public function testBase() : void

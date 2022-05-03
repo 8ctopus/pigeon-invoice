@@ -3,6 +3,10 @@
 use oct8pus\Invoice\Tax;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @internal
+ * @covers oct8pus\Invoice\Tax
+ */
 final class TaxTest extends TestCase
 {
     public function testBase() : void

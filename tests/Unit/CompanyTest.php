@@ -3,6 +3,11 @@
 use oct8pus\Invoice\Company;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @internal
+ * @covers oct8pus\Invoice\Company
+ * @covers oct8pus\Invoice\Entity
+ */
 final class CompanyTest extends TestCase
 {
     public function testBase() : void

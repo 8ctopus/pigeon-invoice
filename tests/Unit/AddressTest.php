@@ -3,13 +3,17 @@
 use oct8pus\Invoice\Address;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @internal
+ * @covers oct8pus\Invoice\Address
+ */
 final class AddressTest extends TestCase
 {
     public function testBase() : void
     {
         $object = (object) [
             'street1' => '16 Leo Tolstoy Street',
-            'street2' => '',
+            'street2' => '-',
             'zip' => '119021',
             'city' => 'Moscow',
             'country' => 'Russia',
