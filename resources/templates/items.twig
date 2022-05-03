@@ -2,7 +2,7 @@
 <tr>
     <td>{{ item.name }}</td>
     <td>{{ item.quantity }}</td>
-    <td>{{ item.price|format_number({fraction_digit: 2}) }}</td>
-    <td>{{ item.subtotal|format_number({fraction_digit: 2}) }}</td>
+    <td>{{ item.price|format_currency(invoice.currency, {fraction_digit: 2}) }}</td>
+    <td>{{ item.subtotal|format_currency(invoice.currency, {fraction_digit: 2}) }}</td>
 </tr>
 {% endfor %}

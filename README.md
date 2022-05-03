@@ -73,7 +73,7 @@ $invoice = (new Invoice([
 
     ->setDate(new DateTime('28-04-2022'))
     ->setNumber('EN43UD6JA7I2LNBC17')
-    ->setCurrency('$')
+    ->setCurrency('EUR')
 
     // add items
     ->addItem((new Item())->setName('Item 1')->setPrice(4.99)->setQuantity(1))
