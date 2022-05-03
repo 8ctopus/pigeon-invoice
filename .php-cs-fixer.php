@@ -20,6 +20,7 @@ return (new PhpCsFixer\Config())
         'phpdoc_trim_consecutive_blank_line_separation' => true,
         'php_unit_method_casing' => false,
         'return_type_declaration' => ['space_before' => 'one'],
+        'single_line_comment_spacing' => false,
         'yoda_style' => false,
     ])
     ->setFinder($finder);
