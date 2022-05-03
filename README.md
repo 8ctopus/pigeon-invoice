@@ -30,14 +30,19 @@ php demo.php
 
 ## install
 
+-
+
 ```sh
 composer require 8ctopus/pigeon-invoice
 ```
+
+- copy the `resources` directory to your project
 
 ```php
 use oct8pus\Invoice\Company;
 use oct8pus\Invoice\Discount;
 use oct8pus\Invoice\Invoice;
+use oct8pus\Invoice\Item;
 use oct8pus\Invoice\Person;
 use oct8pus\Invoice\Shipping;
 use oct8pus\Invoice\Tax;
@@ -45,7 +50,7 @@ use oct8pus\Invoice\Tax;
 require_once './vendor/autoload.php';
 
 $invoice = (new Invoice([
-    'rootDir' => __DIR__,
+    'rootDir' => __DIR__ . DIRECTORY_SEPARATOR . 'resources',
     'templatesDir' => 'templates',
     'locale' => 'en'
 ]))
