@@ -36,7 +36,7 @@ class Invoice
         $settings = (object) $settings;
 
         $this->rootDir = $settings->rootDir;
-        $this->templatesDir = $settings->templatesDir;
+        $this->templatesDir = $this->rootDir . DIRECTORY_SEPARATOR . $settings->templatesDir;
         $this->locale = $settings->locale;
 
         $this->date = null;
