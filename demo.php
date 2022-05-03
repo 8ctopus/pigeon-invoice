@@ -15,8 +15,8 @@ require_once './vendor/autoload.php';
 
 // create invoice
 $invoice = (new Invoice([
-    'rootDir' => __DIR__ .'/resources/',
-    'templatesDir' => __DIR__ . '/resources/templates/',
+    'rootDir' => __DIR__ .'/resources',
+    'templatesDir' => __DIR__ . '/resources/templates',
     'locale' => 'ru',
 ]))
     ->setSeller((new Company())

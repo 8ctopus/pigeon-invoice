@@ -115,11 +115,6 @@ class Invoice
         return $dompdf->output();
     }
 
-    public function items() : array
-    {
-        return $this->items;
-    }
-
     public function seller() : ?Entity
     {
         return $this->seller;
@@ -128,6 +123,11 @@ class Invoice
     public function buyer() : ?Entity
     {
         return $this->buyer;
+    }
+
+    public function items() : array
+    {
+        return $this->items;
     }
 
     public function date() : string
@@ -188,6 +188,11 @@ class Invoice
     public function custom() : object
     {
         return $this->custom;
+    }
+
+    public function rootDir() : string
+    {
+        return $this->rootDir;
     }
 
     public function addItem(Item $item) : self
