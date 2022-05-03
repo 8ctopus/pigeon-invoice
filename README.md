@@ -104,14 +104,14 @@ https://twig.symfony.com/doc/3.x/
 - Twig https://github.com/twigphp/Twig
 - logo https://www.canva.com/design
 
-## clean code
-
-```sh
-vendor/bin/php-cs-fixer fix
-```
-
 ## tests
 
 ```sh
 vendor/bin/phpunit --coverage-html coverage
+```
+
+## clean code
+
+```sh
+vendor/bin/php-cs-fixer fix
 ```
