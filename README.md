@@ -1,6 +1,6 @@
 # The pigeon invoice
 
-The pigeon invoice is a php package that creates html and pdf invoices.
+The pigeon invoice is a php package that creates html and pdf invoices.\
 You can customize and localize it using the `Twig` template engine. `Dompdf` is used for pdf generation.
 
 ## features
@@ -9,6 +9,7 @@ You can customize and localize it using the `Twig` template engine. `Dompdf` is 
 - includes shipping, discount and tax
 - fully customizable thanks to the `Twig` template engine
 - localizable
+- extendable (see the `extend` dir)
 
 ![invoice demo screenshot](screenshot.png)
 
