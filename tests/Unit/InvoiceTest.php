@@ -35,7 +35,7 @@ final class InvoiceTest extends TestCase
                 ->setCountry('Russia'),
             'date' => new DateTime('28-04-2022'),
             'number' => 'EN43UD6JA7I2LNBC17',
-            'currency' => '$',
+            'currency' => 'USD',
             'discount' => (new Discount())
                 ->setName('Special Offer')
                 ->setPrice(10.00),
@@ -58,9 +58,9 @@ final class InvoiceTest extends TestCase
 
         // create invoice
         $invoice = (new Invoice([
-            'rootDir' => getcwd(),
-            'templatesDir' => getcwd() . '/templates/',
-            'locale' => 'ru',
+            'rootDir' => getcwd() . DIRECTORY_SEPARATOR . 'resources',
+            'templatesDir' => 'templates',
+            'locale' => 'en',
         ]))
             ->setSeller($object->seller)
             ->setBuyer($object->buyer)
