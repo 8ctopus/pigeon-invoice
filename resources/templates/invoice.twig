@@ -67,7 +67,7 @@
     {{ include('items.twig') }}
     <tr>
         <th colspan="3" class="right">Sub-total</th>
-        <th>{{ invoice.subtotal|format_currency(invoice.currency, {fraction_digit: 2}) }}</th>
+        <th>{{ invoice.subtotal|format_currency(invoice.currency, {}) }}</th>
     </tr>
     {% if invoice.discount %}
     {{ include('discount.twig') }}
@@ -80,7 +80,7 @@
     {% endif %}
     <tr>
         <th colspan="3" class="right">Total ({{ invoice.currency|currency_symbol }})</th>
-        <th>{{ invoice.total|format_currency(invoice.currency, {fraction_digit: 2}) }}</th>
+        <th>{{ invoice.total|format_currency(invoice.currency, {}) }}</th>
     </tr>
 </table>
 

@@ -1,4 +1,4 @@
 <tr>
     <td colspan="3" class="right">{{ invoice.discount.name }}</td>
-    <td>- {{ invoice.discount.price|format_currency(invoice.currency, {fraction_digit: 2}) }}</td>
+    <td>- {{ invoice.discount.price|format_currency(invoice.currency, {}) }}</td>
 </tr>

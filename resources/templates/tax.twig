@@ -1,4 +1,4 @@
 <tr>
     <td colspan="3" class="right">{{ invoice.tax.name }} {{ invoice.tax.percentage|format_number(style='percent') }}</td>
-    <td>{{ invoice.taxAmount|format_currency(invoice.currency, {fraction_digit: 2}) }}</td>
+    <td>{{ invoice.taxAmount|format_currency(invoice.currency, {}) }}</td>
 </tr>
