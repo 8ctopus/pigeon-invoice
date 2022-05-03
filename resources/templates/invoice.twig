@@ -41,10 +41,12 @@
         <td>{{ invoice.buyer.street1 }}</td>
         <td></td>
     </tr>
+    {% if invoice.buyer.street2 %}
     <tr>
         <td>{{ invoice.buyer.street2 }}</td>
         <td></td>
     </tr>
+    {% endif %}
     <tr>
         <td>{{ invoice.buyer.zip }} {{ invoice.buyer.city }}</td>
         <td></td>
@@ -82,17 +84,9 @@
     </tr>
 </table>
 
-<table>
-    <tr>
-        <th colspan="2" class="bg-none">Activation codes</th>
-    </tr>
-    {{ include('codes.twig') }}
-    <tr>
-        <td colspan="2">
-            <hr>
-            {{ invoice.custom.notes }}
-        </td>
-    </tr>
-</table>
+{{ include('codes.twig') }}
+
+<hr>
+{{ invoice.custom.notes }}
 </body>
 </html>

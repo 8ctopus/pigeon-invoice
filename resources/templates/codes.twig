@@ -1,17 +1,22 @@
-{% for item in invoice.items %}
-<tr>
-    <th colspan="2">{{ item.name }} v{{ item.version }}</th>
-</tr>
-<tr>
-    <td>First name</td>
-    <td>{{ invoice.buyer.firstName }}</td>
-</tr>
-<tr>
-    <td>Last name</td>
-    <td>{{ invoice.buyer.secondName }}</td>
-</tr>
-<tr>
-    <td>Activation code</td>
-    <td>{{ item.code(invoice.buyer.firstName, invoice.buyer.secondName) }}</td>
-</tr>
-{% endfor %}
+<table>
+    <tr>
+        <th colspan="2" class="bg-none">Activation codes</th>
+    </tr>
+    {% for item in invoice.items %}
+    <tr>
+        <th colspan="2">{{ item.name }} v{{ item.version }}</th>
+    </tr>
+    <tr>
+        <td>First name</td>
+        <td>{{ invoice.buyer.firstName }}</td>
+    </tr>
+    <tr>
+        <td>Last name</td>
+        <td>{{ invoice.buyer.secondName }}</td>
+    </tr>
+    <tr>
+        <td>Activation code</td>
+        <td>{{ item.code(invoice.buyer.firstName, invoice.buyer.secondName) }}</td>
+    </tr>
+    {% endfor %}
+</table>

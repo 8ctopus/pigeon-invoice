@@ -15,18 +15,18 @@ require_once './vendor/autoload.php';
 
 // create invoice
 $invoice = (new Invoice([
-    'rootDir' => __DIR__ .'/resources',
+    'rootDir' => __DIR__ . DIRECTORY_SEPARATOR . 'resources',
     'templatesDir' => 'templates',
     'locale' => 'ru',
 ]))
     ->setSeller((new Company())
         ->setName('Widgets LLC')
-        ->setWebsite('https://www.widgets.ru')
-        ->setEmail('hello@widgets.ru')
         ->setStreet1('16 Leo Tolstoy Street')
         ->setZip('119021')
         ->setCity('Moscow')
-        ->setCountry('Russia'))
+        ->setCountry('Russia')
+        ->setWebsite('https://www.widgets.ru')
+        ->setEmail('hello@widgets.ru'))
 
     ->setBuyer((new Person())
         ->setFirstName('Yuri')
