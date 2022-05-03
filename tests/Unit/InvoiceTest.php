@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @internal
- * @covers oct8pus\Invoice\Invoice
+ * @covers \oct8pus\Invoice\Invoice
  */
 final class InvoiceTest extends TestCase
 {

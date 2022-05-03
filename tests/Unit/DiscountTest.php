@@ -5,7 +5,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @internal
- * @covers oct8pus\Invoice\Discount
+ * @covers \oct8pus\Invoice\Discount
  */
 final class DiscountTest extends TestCase
 {

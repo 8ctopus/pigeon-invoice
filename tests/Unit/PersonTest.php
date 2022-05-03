@@ -5,8 +5,8 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @internal
- * @covers oct8pus\Invoice\Person
- * @covers oct8pus\Invoice\Entity
+ * @covers \oct8pus\Invoice\Entity
+ * @covers \oct8pus\Invoice\Person
  */
 final class PersonTest extends TestCase
 {

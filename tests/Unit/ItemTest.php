@@ -5,7 +5,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @internal
- * @covers oct8pus\Invoice\Item
+ * @covers \oct8pus\Invoice\Item
  */
 final class ItemTest extends TestCase
 {

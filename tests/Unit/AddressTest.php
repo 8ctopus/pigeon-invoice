@@ -5,7 +5,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @internal
- * @covers oct8pus\Invoice\Address
+ * @covers \oct8pus\Invoice\Address
  */
 final class AddressTest extends TestCase
 {
