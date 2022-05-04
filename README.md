@@ -15,7 +15,7 @@ You can customize and localize it using the `Twig` template engine. `Dompdf` is 
 
 ## requirements
 
-- `php` > 8 with `ext-dom` and `ext-mbstring`
+- `php > 8` with `ext-dom` and `ext-mbstring`
 
 ## demo
 
