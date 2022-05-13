@@ -1,6 +1,6 @@
 <?php
 
-namespace oct8pus\Invoice;
+namespace Oct8pus\Invoice;
 
 class Item
 {

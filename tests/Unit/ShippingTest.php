@@ -1,11 +1,11 @@
 <?php
 
-use oct8pus\Invoice\Shipping;
+use Oct8pus\Invoice\Shipping;
 use PHPUnit\Framework\TestCase;
 
 /**
  * @internal
- * @covers \oct8pus\Invoice\Shipping
+ * @covers \Oct8pus\Invoice\Shipping
  */
 final class ShippingTest extends TestCase
 {

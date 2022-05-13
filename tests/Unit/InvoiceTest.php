@@ -1,17 +1,17 @@
 <?php
 
-use oct8pus\Invoice\Company;
-use oct8pus\Invoice\Discount;
-use oct8pus\Invoice\Invoice;
-use oct8pus\Invoice\Item;
-use oct8pus\Invoice\Person;
-use oct8pus\Invoice\Shipping;
-use oct8pus\Invoice\Tax;
+use Oct8pus\Invoice\Company;
+use Oct8pus\Invoice\Discount;
+use Oct8pus\Invoice\Invoice;
+use Oct8pus\Invoice\Item;
+use Oct8pus\Invoice\Person;
+use Oct8pus\Invoice\Shipping;
+use Oct8pus\Invoice\Tax;
 use PHPUnit\Framework\TestCase;
 
 /**
  * @internal
- * @covers \oct8pus\Invoice\Invoice
+ * @covers \Oct8pus\Invoice\Invoice
  */
 final class InvoiceTest extends TestCase
 {

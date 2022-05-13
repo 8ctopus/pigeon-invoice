@@ -1,12 +1,12 @@
 <?php
 
-use oct8pus\Invoice\Company;
+use Oct8pus\Invoice\Company;
 use PHPUnit\Framework\TestCase;
 
 /**
  * @internal
- * @covers \oct8pus\Invoice\Company
- * @covers \oct8pus\Invoice\Entity
+ * @covers \Oct8pus\Invoice\Company
+ * @covers \Oct8pus\Invoice\Entity
  */
 final class CompanyTest extends TestCase
 {

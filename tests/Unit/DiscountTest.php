@@ -1,11 +1,11 @@
 <?php
 
-use oct8pus\Invoice\Discount;
+use Oct8pus\Invoice\Discount;
 use PHPUnit\Framework\TestCase;
 
 /**
  * @internal
- * @covers \oct8pus\Invoice\Discount
+ * @covers \Oct8pus\Invoice\Discount
  */
 final class DiscountTest extends TestCase
 {

@@ -1,12 +1,12 @@
 <?php
 
-use oct8pus\Invoice\Person;
+use Oct8pus\Invoice\Person;
 use PHPUnit\Framework\TestCase;
 
 /**
  * @internal
- * @covers \oct8pus\Invoice\Entity
- * @covers \oct8pus\Invoice\Person
+ * @covers \Oct8pus\Invoice\Entity
+ * @covers \Oct8pus\Invoice\Person
  */
 final class PersonTest extends TestCase
 {

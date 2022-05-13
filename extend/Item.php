@@ -1,8 +1,8 @@
 <?php
 
-namespace oct8pus\Extend;
+namespace Oct8pus\Extend;
 
-use oct8pus\Invoice\Item as BaseItem;
+use Oct8pus\Invoice\Item as BaseItem;
 
 class Item extends BaseItem
 {

@@ -1,11 +1,11 @@
 <?php
 
-use oct8pus\Invoice\Address;
+use Oct8pus\Invoice\Address;
 use PHPUnit\Framework\TestCase;
 
 /**
  * @internal
- * @covers \oct8pus\Invoice\Address
+ * @covers \Oct8pus\Invoice\Address
  */
 final class AddressTest extends TestCase
 {
