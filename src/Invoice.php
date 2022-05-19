@@ -201,6 +201,12 @@ class Invoice
         return $this;
     }
 
+    public function setItems(array $items) : self
+    {
+        $this->items = $items;
+        return $this;
+    }
+
     public function setSeller(Entity $seller) : self
     {
         $this->seller = $seller;
