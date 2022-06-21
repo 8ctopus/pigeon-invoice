@@ -92,23 +92,41 @@ class Invoice
         ]);
     }
 
-    public function renderPdf() : string
+    /**
+     * Render pdf
+     * @param ?array $options
+     * @return string
+     */
+    public function renderPdf(array $options = []) : string
     {
-        $html = $this->renderHtml();
+        $tmp = sys_get_temp_dir();
 
-        // convert invoice to pdf
-        $dompdf = new Dompdf();
+        $options = array_merge([
+            // required to load remote content
+            'isRemoteEnabled' => true,
 
-        $options = $dompdf->getOptions();
+            // required to add logo and css but can have security implications
+            'chroot' => [
+                $this->rootDir,
+                $tmp,
+            ],
+
+            // fonts ttf, ufm and php files
+            'fontDir' => $tmp,
+            // for fonts php files
+            'fontCache' => $tmp,
+            'tempDir' => $tmp,
+
+            'logOutputFile' => '',
+
+            'isHtml5ParserEnabled' => true,
+        ], $options);
+
+        $dompdf = new Dompdf($options);
 
         $dompdf->setPaper('A4', 'portrait');
 
-        // required to add logo and css but can have security implications
-        $options->setChroot($this->rootDir);
-
         $dompdf->loadHtml($this->renderHtml());
-
-        $options->setIsHtml5ParserEnabled(true);
 
         $dompdf->render();
 

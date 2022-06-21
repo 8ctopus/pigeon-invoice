@@ -97,7 +97,7 @@ $html = $invoice->renderHtml();
 
 file_put_contents('invoice.html', $html);
 
-$pdf = $invoice->renderPdf();
+$pdf = $invoice->renderPdf([]);
 
 file_put_contents('invoice.pdf', $pdf);
 ```
@@ -105,6 +105,10 @@ file_put_contents('invoice.pdf', $pdf);
 ## Twig templates reference documentation
 
 https://twig.symfony.com/doc/3.x/
+
+## custom fonts
+
+Custom fonts must be in `ttf` format.
 
 ## credits
 
