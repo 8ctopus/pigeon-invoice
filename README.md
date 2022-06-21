@@ -115,6 +115,7 @@ Custom fonts must be in `ttf` format.
 - Dompdf https://github.com/dompdf/dompdf
 - Twig https://github.com/twigphp/Twig
 - logo https://www.canva.com/design
+- Tangerine font https://www.fontsquirrel.com/license/Tangerine
 
 ## tests
 
