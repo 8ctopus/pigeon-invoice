@@ -1,14 +1,13 @@
 @font-face {
-    font-display: swap;
     font-family: 'Tangerine';
     src: url('../fonts/tangerine-400.ttf');
+    font-weight: normal;
 }
 
 @font-face {
-    font-display: swap;
     font-family: 'Tangerine';
-    font-weight: 700;
     src: url('../fonts/tangerine-700.ttf');
+    font-weight: bold;
 }
 
 body {
