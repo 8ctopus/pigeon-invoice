@@ -130,6 +130,7 @@ class Invoice
             'fontCache' => $tmp,
             'tempDir' => $tmp,
 
+            // https://github.com/dompdf/dompdf/wiki/HTML5-Parser
             'isHtml5ParserEnabled' => true,
 
             // debugging
