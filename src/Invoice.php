@@ -126,7 +126,11 @@ class Invoice
         */
 
         // get temporary directory
-        $tmp = sys_get_temp_dir();
+        if (array_key_exists('tmp', 'options')) {
+            $tmp = $options['tmp'];
+        } else {
+            $tmp = sys_get_temp_dir();
+        }
 
         $options = array_merge([
             // required to load remote content
