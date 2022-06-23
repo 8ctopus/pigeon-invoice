@@ -30,6 +30,8 @@ class Invoice
 
     protected ?object $custom;
 
+    protected ?string $html;
+
     public function __construct(?array $settings)
     {
         // cast array to object
@@ -53,6 +55,7 @@ class Invoice
         $this->tax = null;
 
         $this->custom = null;
+        $this->html = null;
     }
 
     public function __toString() : string
@@ -76,6 +79,10 @@ class Invoice
 
     public function renderHtml() : string
     {
+        if ($this->html) {
+            return $this->html;
+        }
+
         $loader = new FilesystemLoader($this->templatesDir);
 
         $twig = new Environment($loader, [
@@ -87,9 +94,11 @@ class Invoice
         // support for number formatting
         $twig->addExtension(new IntlExtension());
 
-        return $twig->render('invoice.twig', [
+        $this->html = $twig->render('invoice.twig', [
             'invoice' => $this,
         ]);
+
+        return $this->html;
     }
 
     /**
@@ -101,8 +110,6 @@ class Invoice
      */
     public function renderPdf(array $options = []) : string
     {
-        $tmp = sys_get_temp_dir();
-
         /* uncomment for debugging
         global $_dompdf_show_warnings, $_dompdf_debug, $_DOMPDF_DEBUG_TYPES;
 
@@ -117,6 +124,9 @@ class Invoice
             'page-break' => false,
         ];
         */
+
+        // get temporary directory
+        $tmp = sys_get_temp_dir();
 
         $options = array_merge([
             // required to load remote content
