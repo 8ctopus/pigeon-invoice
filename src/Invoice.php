@@ -126,7 +126,7 @@ class Invoice
         */
 
         // get temporary directory
-        if (array_key_exists('tmp', 'options')) {
+        if (array_key_exists('tmp', $options)) {
             $tmp = $options['tmp'];
         } else {
             $tmp = sys_get_temp_dir();
