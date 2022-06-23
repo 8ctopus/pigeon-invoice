@@ -59,7 +59,10 @@ $html = $invoice->renderHtml();
 
 file_put_contents('invoice.html', $html);
 
-$pdf = $invoice->renderPdf([]);
+$pdf = $invoice->renderPdf([
+    'paper' => 'A4',
+    'orientation' => 'portrait',
+]);
 
 file_put_contents('invoice.pdf', $pdf);
 

@@ -157,7 +157,9 @@ class Invoice
 
         $dompdf = new Dompdf($options);
 
-        $dompdf->setPaper('A4', 'portrait');
+        if (array_key_exists('paper', $options)) {
+            $dompdf->setPaper($options['paper'], $options['orientation'] ?? 'portrait');
+        }
 
         $dompdf->loadHtml($this->renderHtml());
 

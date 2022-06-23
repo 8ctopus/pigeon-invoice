@@ -12,6 +12,7 @@ You can customize and localize it using the `Twig` template engine. `Dompdf` is 
 - fully customizable thanks to the `Twig` template engine
 - localizable
 - extendable (see the `extend` dir)
+- adjust paper size
 
 ![invoice demo screenshot](screenshot.png)
 
