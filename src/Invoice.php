@@ -94,7 +94,9 @@ class Invoice
 
     /**
      * Render pdf
+     *
      * @param ?array $options
+     *
      * @return string
      */
     public function renderPdf(array $options = []) : string
