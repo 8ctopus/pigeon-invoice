@@ -122,25 +122,30 @@ class Invoice
                 2 => ["pipe", "w"], //["file", "/tmp/error-output.txt", "a"],
             ];
 
-            $process = proc_open('wkhtmltopdf.exe --enable-local-file-access --page-size A4 --orientation Portrait - -', $descriptorSpec, $pipes, null, null, null);
+            $process = proc_open("wkhtmltopdf --enable-local-file-access --page-size {$options['paper']} --orientation {$options['orientation']} - -", $descriptorSpec, $pipes, null, null, null);
 
             if (!is_resource($process)) {
-                throw new Exception('wkhtmltopdf');
+                throw new Exception('wkhtmltopdf open process');
             }
 
+            // write input data
             fwrite($pipes[0], $this->renderHtml());
             fclose($pipes[0]);
 
+            // get output data
             $pdf = stream_get_contents($pipes[1]);
             fclose($pipes[1]);
 
+            // get errors
             $errors = stream_get_contents($pipes[2]);
             fclose($pipes[2]);
 
             // it is important to close all pipes before calling proc_close in order to avoid a deadlock
-            $returnValue = proc_close($process);
+            if (proc_close($process) === 0) {
+                return $pdf;
+            }
 
-            return $pdf;
+            throw new Exception('wkhtmltopdf process return value');
     } else {
             /* uncomment for debugging
             global $_dompdf_show_warnings, $_dompdf_debug, $_DOMPDF_DEBUG_TYPES;
