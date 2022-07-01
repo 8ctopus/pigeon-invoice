@@ -7,11 +7,12 @@ You can customize and localize it using the `Twig` template engine. `Dompdf` is 
 
 ## features
 
-- pdf / html invoice
+- pdf or html invoice
 - includes shipping, discount and tax
-- fully customizable thanks to the `Twig` template engine
+- fully customizable thanks to the `Twig` templates
 - localizable
 - extendable (see the `extend` dir)
+- 2 pdf engines available: Dompdf and wk\<html\>topdf
 - adjust paper size
 
 ![invoice demo screenshot](screenshot.png)
@@ -98,10 +99,19 @@ $html = $invoice->renderHtml();
 
 file_put_contents('invoice.html', $html);
 
-$pdf = $invoice->renderPdf([]);
+$pdf = $invoice->renderPdf([
+    'paper' => 'A4',
+    'orientation' => 'portrait',
+    // uncomment to use wk\<html\>topdf
+    //'engine' => 'alternate',
+]);
 
 file_put_contents('invoice.pdf', $pdf);
 ```
+
+## wk\<html\>topdf
+
+To use the wk\<html\>topdf engine, you will need to [download the binary](https://wkhtmltopdf.org/downloads.html) for your system and add it to the system path.
 
 ## Twig templates reference documentation
 
@@ -114,6 +124,7 @@ Custom fonts must be in `ttf` format.
 ## credits
 
 - Dompdf https://github.com/dompdf/dompdf
+- wk\<html\>topdf https://wkhtmltopdf.org/
 - Twig https://github.com/twigphp/Twig
 - logo https://www.canva.com/design
 - Tangerine font https://www.fontsquirrel.com/license/Tangerine
