@@ -114,14 +114,15 @@ class Invoice
     {
         if (array_key_exists('engine', $options) && $options['engine'] === 'alternate') {
             $descriptorSpec = [
-                // stdin is a pipe that the child will read from
+                // stdin
                 0 => ["pipe", "r"],
-                // stdout is a pipe that the child will write to
+                // stdout
                 1 => ["pipe", "w"],
-                // stderr is a file to write to
+                // stderr
                 2 => ["pipe", "w"], //["file", "/tmp/error-output.txt", "a"],
             ];
 
+            // open process
             $process = proc_open("wkhtmltopdf --enable-local-file-access --page-size {$options['paper']} --orientation {$options['orientation']} - -", $descriptorSpec, $pipes, null, null, null);
 
             if (!is_resource($process)) {
@@ -132,11 +133,11 @@ class Invoice
             fwrite($pipes[0], $this->renderHtml());
             fclose($pipes[0]);
 
-            // get output data
+            // read output data
             $pdf = stream_get_contents($pipes[1]);
             fclose($pipes[1]);
 
-            // get errors
+            // read errors
             $errors = stream_get_contents($pipes[2]);
             fclose($pipes[2]);
 
