@@ -40,7 +40,7 @@ class Person extends Entity
 
     public function name() : string
     {
-        switch (Locale::getDefault()) {
+        switch (Locale::getPrimaryLanguage(Locale::getDefault())) {
             case 'ja':
             case 'ru':
                 return "{$this->lastName} {$this->firstName}";
