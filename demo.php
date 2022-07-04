@@ -62,11 +62,18 @@ file_put_contents('invoice.html', $html);
 $pdf = $invoice->renderPdf([
     'paper' => 'A4',
     'orientation' => 'portrait',
-    // uncomment to use wk\<html\>topdf
-    //'engine' => 'alternate',
 ]);
 
 file_put_contents('invoice.pdf', $pdf);
+
+$pdf = $invoice->renderPdf([
+    'paper' => 'A4',
+    'orientation' => 'portrait',
+    // use wk\<html\>topdf
+    'engine' => 'alternate',
+]);
+
+file_put_contents('invoice-alternate.pdf', $pdf);
 
 /*
 // output pdf to browser

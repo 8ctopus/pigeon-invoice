@@ -4,6 +4,7 @@ namespace Oct8pus\Invoice;
 
 use DateTime;
 use Dompdf\Dompdf;
+use Exception;
 use Locale;
 use Twig\Environment;
 use Twig\Extra\Intl\IntlExtension;
@@ -113,6 +114,16 @@ class Invoice
     public function renderPdf(array $options = []) : string
     {
         if (array_key_exists('engine', $options) && $options['engine'] === 'alternate') {
+            $exe = 'wkhtmltopdf';
+
+            if (strtoupper(substr(php_uname('s'), 0, 3)) === 'WIN') {
+                $exe .= '.exe';
+            }
+
+            if (!file_exists($exe)) {
+                throw new Exception('cannot find wkhtmltopdf executable');
+            }
+
             $descriptorSpec = [
                 // stdin
                 0 => ["pipe", "r"],
@@ -123,7 +134,7 @@ class Invoice
             ];
 
             // open process
-            $process = proc_open("wkhtmltopdf --enable-local-file-access --page-size {$options['paper']} --orientation {$options['orientation']} - -", $descriptorSpec, $pipes, null, null, null);
+            $process = proc_open("{$exe} --enable-local-file-access --page-size {$options['paper']} --orientation {$options['orientation']} - -", $descriptorSpec, $pipes, null, null, null);
 
             if (!is_resource($process)) {
                 throw new Exception('wkhtmltopdf open process');

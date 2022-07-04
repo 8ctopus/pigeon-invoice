@@ -111,7 +111,7 @@ file_put_contents('invoice.pdf', $pdf);
 
 ## wk\<html\>topdf
 
-To use the wk\<html\>topdf engine, you will need to [download the binary](https://wkhtmltopdf.org/downloads.html) for your system and add it to the system path.
+To use the wk\<html\>topdf engine, you will need to [download the binary](https://wkhtmltopdf.org/downloads.html) for your system and add it to the current working directory `getcwd()` or it to the system path.
 
 ## Twig templates reference documentation
 

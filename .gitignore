@@ -9,6 +9,7 @@
 # invoice samples
 /invoice.html
 /invoice.pdf
+/invoice-alternate.pdf
 
 # other
 /*.sublime-workspace
