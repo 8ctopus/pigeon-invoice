@@ -135,6 +135,8 @@ Custom fonts must be in `ttf` format.
 vendor/bin/phpunit --coverage-html coverage
 ```
 
+Note: tests do not check the pdf output, it seems it's not ready yet in [DomPDF](https://github.com/dompdf/dompdf/pull/2510)
+
 ## clean code
 
 ```sh
