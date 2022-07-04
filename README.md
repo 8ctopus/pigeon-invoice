@@ -117,9 +117,11 @@ To use the wk\<html\>topdf engine, you will need to [download the binary](https:
 
 https://twig.symfony.com/doc/3.x/
 
-## custom fonts
+## custom fonts and unicode
 
-Custom fonts must be in `ttf` format.
+Custom fonts must be in TrueType (\*.ttf) format.
+
+https://github.com/dompdf/dompdf/wiki/UnicodeHowTo
 
 ## credits
 
