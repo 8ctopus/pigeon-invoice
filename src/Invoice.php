@@ -126,11 +126,11 @@ class Invoice
 
             $descriptorSpec = [
                 // stdin
-                0 => ["pipe", "r"],
+                0 => ['pipe', 'r'],
                 // stdout
-                1 => ["pipe", "w"],
+                1 => ['pipe', 'w'],
                 // stderr
-                2 => ["pipe", "w"], //["file", "/tmp/error-output.txt", "a"],
+                2 => ['pipe', 'w'], //["file", "/tmp/error-output.txt", "a"],
             ];
 
             // open process
@@ -158,7 +158,7 @@ class Invoice
             }
 
             throw new Exception('wkhtmltopdf process return value');
-    } else {
+        } else {
             /* uncomment for debugging
             global $_dompdf_show_warnings, $_dompdf_debug, $_DOMPDF_DEBUG_TYPES;
 
