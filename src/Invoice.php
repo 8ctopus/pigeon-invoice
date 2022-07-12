@@ -268,8 +268,8 @@ class Invoice
     {
         $subtotal = 0;
 
-        foreach ($this->items as $items) {
-            $subtotal += $items->subtotal();
+        foreach ($this->items as $item) {
+            $subtotal += $item->subtotal();
         }
 
         return $subtotal;
