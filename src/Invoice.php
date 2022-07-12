@@ -28,6 +28,7 @@ class Invoice
     protected ?Discount $discount;
     protected ?Shipping $shipping;
     protected ?Tax $tax;
+    protected ?float $subtotal;
 
     protected ?object $custom;
 
@@ -54,6 +55,7 @@ class Invoice
         $this->discount = null;
         $this->shipping = null;
         $this->tax = null;
+        $this->subtotal = null;
 
         $this->custom = null;
         $this->html = null;
@@ -266,13 +268,19 @@ class Invoice
 
     public function subtotal() : float
     {
-        $subtotal = 0;
+        if ($this->subtotal) {
+            // hard coded subtotal
+            return $this->subtotal;
+        } else {
+            // calculated subtotal
+            $subtotal = 0;
 
-        foreach ($this->items as $item) {
-            $subtotal += $item->subtotal();
+            foreach ($this->items as $item) {
+                $subtotal += $item->subtotal();
+            }
+
+            return $subtotal;
         }
-
-        return $subtotal;
     }
 
     public function taxAmount() : float
@@ -373,6 +381,12 @@ class Invoice
     public function setTax(?Tax $tax) : self
     {
         $this->tax = $tax;
+        return $this;
+    }
+
+    public function setSubtotal(?float $subtotal) : self
+    {
+        $this->subtotal = $subtotal;
         return $this;
     }
 
