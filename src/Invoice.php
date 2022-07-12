@@ -284,7 +284,9 @@ class Invoice
     {
         $total = $this->subtotal() + $this->shipping?->price() - $this->discount?->price() + $this->taxAmount();
 
-        assert($total > 0);
+        if ($total <= 0) {
+            throw new Exception('invoice total <= 0');
+        }
 
         return $total;
     }
