@@ -392,7 +392,7 @@ class Invoice
 
     public function setCustomFields(array $fields) : self
     {
-        $this->custom = (object) $fields;
+        $this->custom = json_decode(json_encode($fields));
         return $this;
     }
 }
