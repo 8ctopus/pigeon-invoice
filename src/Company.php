@@ -18,21 +18,9 @@ class Company extends Entity
         return "{$this->name}\n" . parent::__toString();
     }
 
-    public function setWebsite(string $website) : self
-    {
-        $this->website = $website;
-        return $this;
-    }
-
     public function isCompany() : bool
     {
         return true;
-    }
-
-    public function setName(string $name) : self
-    {
-        $this->name = $name;
-        return $this;
     }
 
     public function name() : string
@@ -50,8 +38,20 @@ class Company extends Entity
         return $this->name;
     }
 
+    public function setName(string $name) : self
+    {
+        $this->name = $name;
+        return $this;
+    }
+
     public function website() : string
     {
         return $this->website;
+    }
+
+    public function setWebsite(string $website) : self
+    {
+        $this->website = $website;
+        return $this;
     }
 }
