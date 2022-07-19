@@ -2,15 +2,19 @@
 
 namespace Oct8pus\Invoice;
 
+use Locale;
+
 class Company extends Entity
 {
     protected string $name;
+    protected string $recipient;
 
     public function __construct()
     {
         parent::__construct();
 
         $this->name = '';
+        $this->recipient = '';
     }
 
     public function __toString() : string
@@ -49,9 +53,17 @@ class Company extends Entity
         return $this->recipient;
     }
 
-    public function setRecipient(string $recipient) : self
+    public function setRecipient(string $firstName, string $lastName) : self
     {
-        $this->recipient = $recipient;
+        switch (Locale::getPrimaryLanguage(Locale::getDefault())) {
+            case 'ja':
+            case 'ru':
+                $this->recipient = "{$lastName} {$firstName}";
+
+            default:
+                $this->recipient = "{$firstName} {$lastName}";
+        }
+
         return $this;
     }
 
