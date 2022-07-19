@@ -44,6 +44,17 @@ class Company extends Entity
         return $this;
     }
 
+    public function recipient() : string
+    {
+        return $this->recipient;
+    }
+
+    public function setRecipient(string $recipient) : self
+    {
+        $this->recipient = $recipient;
+        return $this;
+    }
+
     public function website() : string
     {
         return $this->website;
