@@ -6,6 +6,7 @@ use DateTime;
 use Dompdf\Dompdf;
 use Exception;
 use Locale;
+use stdClass;
 use Twig\Environment;
 use Twig\Extra\Intl\IntlExtension;
 use Twig\Loader\FilesystemLoader;
@@ -392,7 +393,12 @@ class Invoice
 
     public function setCustomFields(array $fields) : self
     {
-        $this->custom = json_decode(json_encode($fields));
+        $this->custom = new stdClass();
+
+        foreach ($fields as $key => $value) {
+            $this->custom->$key = $value;
+        }
+
         return $this;
     }
 }
