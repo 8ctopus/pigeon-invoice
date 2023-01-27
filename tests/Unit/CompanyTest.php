@@ -5,6 +5,7 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @internal
+ *
  * @covers \Oct8pus\Invoice\Company
  * @covers \Oct8pus\Invoice\Entity
  */
