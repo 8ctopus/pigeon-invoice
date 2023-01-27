@@ -8,6 +8,7 @@ class Company extends Entity
 {
     protected string $name;
     protected string $recipient;
+    protected string $website;
 
     public function __construct()
     {
