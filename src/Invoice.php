@@ -110,9 +110,9 @@ class Invoice
      *
      * @param ?array $options
      *
-     * @throws
-     *
      * @return string
+     *
+     * @throws
      */
     public function renderPdf(array $options = []) : string
     {
@@ -396,7 +396,7 @@ class Invoice
         $this->custom = new stdClass();
 
         foreach ($fields as $key => $value) {
-            $this->custom->$key = $value;
+            $this->custom->{$key} = $value;
         }
 
         return $this;
