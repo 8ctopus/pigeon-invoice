@@ -60,9 +60,11 @@ class Company extends Entity
             case 'ja':
             case 'ru':
                 $this->recipient = "{$lastName} {$firstName}";
+                break;
 
             default:
                 $this->recipient = "{$firstName} {$lastName}";
+                break;
         }
 
         return $this;
