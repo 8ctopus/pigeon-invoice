@@ -19,7 +19,7 @@ You can customize and localize it using the `Twig` template engine. `Dompdf` is 
 
 ## requirements
 
-- `php > 8` with `ext-dom` and `ext-mbstring`
+- `php > 8.0` with `ext-dom` and `ext-mbstring`
 
 ## demo
 
@@ -115,13 +115,13 @@ To use the wk\<html\>topdf engine, you will need to [download the binary](https:
 
 ## Twig templates reference documentation
 
-https://twig.symfony.com/doc/3.x/
+    https://twig.symfony.com/doc/3.x/
 
 ## custom fonts and unicode
 
 Custom fonts must be in TrueType (\*.ttf) format.
 
-https://github.com/dompdf/dompdf/wiki/UnicodeHowTo
+    https://github.com/dompdf/dompdf/wiki/UnicodeHowTo
 
 ## credits
 
@@ -133,14 +133,10 @@ https://github.com/dompdf/dompdf/wiki/UnicodeHowTo
 
 ## tests
 
-```sh
-vendor/bin/phpunit --coverage-html coverage
-```
+    composer test
 
 Note: tests do not check the pdf output, it seems it's not ready yet in [DomPDF](https://github.com/dompdf/dompdf/pull/2510)
 
 ## clean code
 
-```sh
-vendor/bin/php-cs-fixer fix
-```
+    vendor/bin/php-cs-fixer fix
