@@ -29,7 +29,7 @@ class Tax
         return $this;
     }
 
-    public function setPercentage(string $percentage) : self
+    public function setPercentage(float $percentage) : self
     {
         $this->percentage = $percentage;
         return $this;

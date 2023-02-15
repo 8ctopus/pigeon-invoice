@@ -24,6 +24,9 @@ class Invoice
     protected ?Entity $seller;
     protected ?Entity $buyer;
 
+    /**
+     * @var Item[]
+     */
     protected array $items;
 
     protected ?Discount $discount;
@@ -35,6 +38,10 @@ class Invoice
 
     protected ?string $html;
 
+    /**
+     * Constructor
+     * @param array<string, string> $settings
+     */
     public function __construct(?array $settings)
     {
         // cast array to object
@@ -67,7 +74,7 @@ class Invoice
         $result = "{$this->seller}\n";
         $result .= "{$this->buyer}\n";
 
-        $result .= $this->date->format('Y-m-d') . "\n";
+        $result .= $this->date?->format('Y-m-d') . "\n";
         $result .= "{$this->number}\n";
 
         $total = 0;
@@ -108,11 +115,11 @@ class Invoice
     /**
      * Render pdf
      *
-     * @param ?array $options
+     * @param array<string, string> $options
      *
      * @return string
      *
-     * @throws
+     * @throws Exception
      */
     public function renderPdf(array $options = []) : string
     {
@@ -156,7 +163,7 @@ class Invoice
             fclose($pipes[2]);
 
             // it is important to close all pipes before calling proc_close in order to avoid a deadlock
-            if (proc_close($process) === 0) {
+            if ($pdf !== false && proc_close($process) === 0) {
                 return $pdf;
             }
 
@@ -233,7 +240,13 @@ class Invoice
 
             $dompdf->render();
 
-            return $dompdf->output();
+            $output = $dompdf->output();
+
+            if ($output === null) {
+                throw new Exception('dompdf output');
+            }
+
+            return $output;
         }
     }
 
@@ -247,6 +260,9 @@ class Invoice
         return $this->buyer;
     }
 
+    /**
+     * @return Item[]
+     */
     public function items() : array
     {
         return $this->items;
@@ -254,7 +270,11 @@ class Invoice
 
     public function date() : string
     {
-        return $this->date->format('Y-m-d');
+        if ($this->date) {
+            return $this->date->format('Y-m-d');
+        }
+
+        throw new Exception('date not set');
     }
 
     public function number() : string
@@ -315,7 +335,7 @@ class Invoice
         return $this->tax;
     }
 
-    public function custom() : object
+    public function custom() : ?object
     {
         return $this->custom;
     }
@@ -331,6 +351,9 @@ class Invoice
         return $this;
     }
 
+    /**
+    * @param Item[] $items
+    */
     public function setItems(array $items) : self
     {
         $this->items = $items;
@@ -391,6 +414,9 @@ class Invoice
         return $this;
     }
 
+    /**
+     * @param array<string, string> $fields
+     */
     public function setCustomFields(array $fields) : self
     {
         $this->custom = new stdClass();

@@ -40,19 +40,19 @@ class Item
         return $this->quantity * $this->price;
     }
 
-    public function setName($name) : self
+    public function setName(string $name) : self
     {
         $this->name = $name;
         return $this;
     }
 
-    public function setPrice($price) : self
+    public function setPrice(float $price) : self
     {
         $this->price = $price;
         return $this;
     }
 
-    public function setQuantity($quantity) : self
+    public function setQuantity(int $quantity) : self
     {
         $this->quantity = $quantity;
         return $this;
