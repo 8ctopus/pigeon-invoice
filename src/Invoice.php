@@ -40,6 +40,7 @@ class Invoice
 
     /**
      * Constructor
+     *
      * @param array<string, string> $settings
      */
     public function __construct(?array $settings)
@@ -352,8 +353,8 @@ class Invoice
     }
 
     /**
-    * @param Item[] $items
-    */
+     * @param Item[] $items
+     */
     public function setItems(array $items) : self
     {
         $this->items = $items;
