@@ -1,16 +1,17 @@
 # composer
-/vendor/
 /composer.lock
+/vendor/*
 
 # phpunit
+/.phpunit.cache/
 /.phpunit.result.cache
 /coverage/
+
+# other
+/*.sublime-workspace
+/.php-cs-fixer.cache
 
 # invoice samples
 /invoice.html
 /invoice.pdf
 /invoice-alternate.pdf
-
-# other
-/*.sublime-workspace
-/.php-cs-fixer.cache
