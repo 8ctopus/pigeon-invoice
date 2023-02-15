@@ -21,8 +21,8 @@ final class DiscountTest extends TestCase
             ->setName($object->name)
             ->setPrice($object->price);
 
-        $this->assertEquals($discount->name(), $object->name);
-        $this->assertEquals($discount->price(), $object->price);
+        static::assertSame($discount->name(), $object->name);
+        static::assertSame($discount->price(), $object->price);
 
         //$this->assertEquals(gettype((string) $discount), 'string');
     }

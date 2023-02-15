@@ -27,12 +27,12 @@ final class AddressTest extends TestCase
             ->setCity($object->city)
             ->setCountry($object->country);
 
-        $this->assertEquals($address->street1(), $object->street1);
-        $this->assertEquals($address->street2(), $object->street2);
-        $this->assertEquals($address->zip(), $object->zip);
-        $this->assertEquals($address->city(), $object->city);
-        $this->assertEquals($address->country(), $object->country);
+        static::assertSame($address->street1(), $object->street1);
+        static::assertSame($address->street2(), $object->street2);
+        static::assertSame($address->zip(), $object->zip);
+        static::assertSame($address->city(), $object->city);
+        static::assertSame($address->country(), $object->country);
 
-        $this->assertEquals(gettype((string) $address), 'string');
+        static::assertSame(gettype((string) $address), 'string');
     }
 }

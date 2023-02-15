@@ -53,9 +53,9 @@ final class InvoiceTest extends TestCase
 
         $items = [];
 
-        array_push($items, (new Item())->setName('Item 1')->setPrice(4.99)->setQuantity(1));
-        array_push($items, (new Item())->setName('Item 2')->setPrice(9.99)->setQuantity(2));
-        array_push($items, (new Item())->setName('Item 3')->setPrice(3.99)->setQuantity(3));
+        $items[] = (new Item())->setName('Item 1')->setPrice(4.99)->setQuantity(1);
+        $items[] = (new Item())->setName('Item 2')->setPrice(9.99)->setQuantity(2);
+        $items[] = (new Item())->setName('Item 3')->setPrice(3.99)->setQuantity(3);
 
         // create invoice
         $invoice = (new Invoice([
@@ -87,26 +87,26 @@ final class InvoiceTest extends TestCase
         $taxAmount = $object->tax->percentage() * ($subtotal + $object->shipping->price() - $object->discount->price());
         $total = $subtotal + $object->shipping->price() - $object->discount->price() + $taxAmount;
 
-        $this->assertEquals($invoice->seller(), $object->seller);
-        $this->assertEquals($invoice->buyer(), $object->buyer);
+        static::assertSame($invoice->seller(), $object->seller);
+        static::assertSame($invoice->buyer(), $object->buyer);
 
-        $this->assertEquals($invoice->date(), $object->date->format('Y-m-d'));
-        $this->assertEquals($invoice->number(), $object->number);
-        $this->assertEquals($invoice->currency(), $object->currency);
+        static::assertSame($invoice->date(), $object->date->format('Y-m-d'));
+        static::assertSame($invoice->number(), $object->number);
+        static::assertSame($invoice->currency(), $object->currency);
 
-        $this->assertEquals($invoice->discount(), $object->discount);
-        $this->assertEquals($invoice->shipping(), $object->shipping);
-        $this->assertEquals($invoice->tax(), $object->tax);
-        $this->assertEquals($invoice->custom(), (object) $object->custom);
-        $this->assertEquals($invoice->items(), $items);
+        static::assertSame($invoice->discount(), $object->discount);
+        static::assertSame($invoice->shipping(), $object->shipping);
+        static::assertSame($invoice->tax(), $object->tax);
+        static::assertSame($invoice->custom(), (object) $object->custom);
+        static::assertSame($invoice->items(), $items);
 
-        $this->assertEquals($invoice->subtotal(), $subtotal);
-        $this->assertEquals($invoice->taxAmount(), $taxAmount);
-        $this->assertEquals($invoice->total(), $total);
+        static::assertSame($invoice->subtotal(), $subtotal);
+        static::assertSame($invoice->taxAmount(), $taxAmount);
+        static::assertSame($invoice->total(), $total);
 
-        $this->assertEquals(gettype((string) $invoice), 'string');
+        static::assertSame(gettype((string) $invoice), 'string');
 
-        $this->assertEquals(gettype((string) $invoice->renderHtml()), 'string');
-        $this->assertEquals(gettype((string) $invoice->renderPdf()), 'string');
+        static::assertSame(gettype((string) $invoice->renderHtml()), 'string');
+        static::assertSame(gettype((string) $invoice->renderPdf()), 'string');
     }
 }

@@ -34,23 +34,23 @@ final class CompanyTest extends TestCase
             ->setCountry($object->country)
             ->setEmail($object->email);
 
-        $this->assertFalse($company->isPerson());
-        $this->assertTrue($company->isCompany());
+        static::assertFalse($company->isPerson());
+        static::assertTrue($company->isCompany());
 
-        $this->assertEquals($company->name(), $object->name);
-        $this->assertEquals($company->firstName(), $object->name);
-        $this->assertEquals($company->secondName(), $object->name);
+        static::assertSame($company->name(), $object->name);
+        static::assertSame($company->firstName(), $object->name);
+        static::assertSame($company->secondName(), $object->name);
 
-        $this->assertEquals($company->website(), $object->website);
+        static::assertSame($company->website(), $object->website);
 
-        $this->assertEquals($company->street1(), $object->street1);
-        $this->assertEquals($company->street2(), $object->street2);
-        $this->assertEquals($company->zip(), $object->zip);
-        $this->assertEquals($company->city(), $object->city);
-        $this->assertEquals($company->country(), $object->country);
+        static::assertSame($company->street1(), $object->street1);
+        static::assertSame($company->street2(), $object->street2);
+        static::assertSame($company->zip(), $object->zip);
+        static::assertSame($company->city(), $object->city);
+        static::assertSame($company->country(), $object->country);
 
-        $this->assertEquals($company->email(), $object->email);
+        static::assertSame($company->email(), $object->email);
 
-        $this->assertEquals(gettype((string) $company), 'string');
+        static::assertSame(gettype((string) $company), 'string');
     }
 }

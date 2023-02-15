@@ -41,7 +41,7 @@ class Invoice
         $settings = (object) $settings;
 
         $this->rootDir = $settings->rootDir;
-        $this->templatesDir = $this->rootDir . DIRECTORY_SEPARATOR . $settings->templatesDir;
+        $this->templatesDir = $this->rootDir . \DIRECTORY_SEPARATOR . $settings->templatesDir;
         $this->locale = $settings->locale;
 
         $this->date = null;
@@ -327,7 +327,7 @@ class Invoice
 
     public function addItem(Item $item) : self
     {
-        array_push($this->items, $item);
+        $this->items[] = $item;
         return $this;
     }
 

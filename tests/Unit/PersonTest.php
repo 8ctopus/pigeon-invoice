@@ -34,26 +34,26 @@ final class PersonTest extends TestCase
             ->setCountry($object->country)
             ->setEmail($object->email);
 
-        $this->assertTrue($person->isPerson());
-        $this->assertFalse($person->isCompany());
+        static::assertTrue($person->isPerson());
+        static::assertFalse($person->isCompany());
 
         Locale::setDefault('en');
 
-        $this->assertEquals($person->firstName(), $object->firstName);
-        $this->assertEquals($person->secondName(), $object->lastName);
-        $this->assertEquals($person->name(), "{$object->firstName} {$object->lastName}");
+        static::assertSame($person->firstName(), $object->firstName);
+        static::assertSame($person->secondName(), $object->lastName);
+        static::assertSame($person->name(), "{$object->firstName} {$object->lastName}");
 
         Locale::setDefault('ru');
 
-        $this->assertEquals($person->name(), "{$object->lastName} {$object->firstName}");
+        static::assertSame($person->name(), "{$object->lastName} {$object->firstName}");
 
-        $this->assertEquals($person->street1(), $object->street1);
-        $this->assertEquals($person->street2(), $object->street2);
-        $this->assertEquals($person->zip(), $object->zip);
-        $this->assertEquals($person->city(), $object->city);
-        $this->assertEquals($person->country(), $object->country);
-        $this->assertEquals($person->email(), $object->email);
+        static::assertSame($person->street1(), $object->street1);
+        static::assertSame($person->street2(), $object->street2);
+        static::assertSame($person->zip(), $object->zip);
+        static::assertSame($person->city(), $object->city);
+        static::assertSame($person->country(), $object->country);
+        static::assertSame($person->email(), $object->email);
 
-        $this->assertEquals(gettype((string) $person), 'string');
+        static::assertSame(gettype((string) $person), 'string');
     }
 }
