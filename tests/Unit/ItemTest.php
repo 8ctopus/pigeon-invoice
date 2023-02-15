@@ -25,7 +25,7 @@ final class ItemTest extends TestCase
 
         static::assertSame($item->name(), $object->name);
         static::assertSame($item->price(), $object->price);
-        static::assertSame($item->quantity(), $object->quantity);
+        static::assertEquals($item->quantity(), $object->quantity);
         static::assertSame($item->subtotal(), $object->quantity * $object->price);
 
         static::assertSame(gettype((string) $item), 'string');

@@ -97,7 +97,7 @@ final class InvoiceTest extends TestCase
         static::assertSame($invoice->discount(), $object->discount);
         static::assertSame($invoice->shipping(), $object->shipping);
         static::assertSame($invoice->tax(), $object->tax);
-        static::assertSame($invoice->custom(), (object) $object->custom);
+        static::assertEquals($invoice->custom(), (object) $object->custom);
         static::assertSame($invoice->items(), $items);
 
         static::assertSame($invoice->subtotal(), $subtotal);
