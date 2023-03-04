@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - master
-    paths-ignore:
-      - '**.md'
+    paths:
+      - 'src/**'
 
 env:
   COMPOSER_ROOT_VERSION: 1.99
@@ -16,7 +16,7 @@ jobs:
 
     strategy:
       matrix:
-        php-version: ["8.0", "8.1", "8.2"]
+        php-version: [8.0, 8.1, 8.2]
 
         dependencies:
           - "highest"
@@ -24,11 +24,11 @@ jobs:
     name: P${{ matrix.php-version }} - ${{ matrix.dependencies }}
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+      - name: Checkout project
+        uses: actions/checkout@v3
 
       - name: Install PHP
-        uses: shivammathur/setup-php@v2
+        uses: shivammathur/setup-php@2.24.0
         with:
           php-version: "${{ matrix.php-version }}"
           extensions: xdebug
@@ -36,10 +36,10 @@ jobs:
 
       - name: Get composer cache directory
         id: composercache
-        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+        run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
 
       - name: Cache dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ${{ steps.composercache.outputs.dir }}
           key: ${{ runner.os }}-php-${{ matrix.php-version }}-${{ matrix.dependencies }}-composer-${{ hashFiles('**/composer.json') }}
@@ -75,19 +75,6 @@ jobs:
           status: ${{ fromJson(steps.scc.outputs.scc)[0].Code }}
           color: 'blue'
           path: .github/lines.svg
-
-# less performant as it does not take comments into consideration
-#      - name: Make lines of code badge
-#        uses: DeathSy/GHA-LoC-Badge@1.0.3
-#        #id: badge
-#        with:
-#          debug: true
-#          directory: ./src/
-#          badge: ./output/lines.svg
-#          # patterns in the format of a '.gitignore' file, separated by pipes.
-#          patterns: '**/*.php'
-#          # directories to ignore, separated by pipes.
-#          #ignore: 'vendor|tests'
 
       - name: Make code coverage badge
         uses: timkrase/phpunit-coverage-badge@v1.2.1
