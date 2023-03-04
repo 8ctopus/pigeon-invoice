@@ -1,13 +1,15 @@
 # The pigeon invoice
 
+[![packagist](http://poser.pugx.org/8ctopus/pigeon-invoice/v)](https://packagist.org/packages/8ctopus/pigeon-invoice)
+[![downloads](http://poser.pugx.org/8ctopus/pigeon-invoice/downloads)](https://packagist.org/packages/8ctopus/pigeon-invoice)
+[![min php version](http://poser.pugx.org/8ctopus/pigeon-invoice/require/php)](https://packagist.org/packages/8ctopus/pigeon-invoice)
+[![license](http://poser.pugx.org/8ctopus/pigeon-invoice/license)](https://packagist.org/packages/8ctopus/pigeon-invoice)
+[![tests](https://github.com/8ctopus/pigeon-invoice/actions/workflows/tests.yml/badge.svg)](https://github.com/8ctopus/pigeon-invoice/actions/workflows/tests.yml)
+![code coverage badge](https://raw.githubusercontent.com/8ctopus/pigeon-invoice/image-data/coverage.svg)
+![lines of code](https://raw.githubusercontent.com/8ctopus/pigeon-invoice/image-data/lines.svg)
+
 The pigeon invoice is a php package that creates html and pdf invoices.\
 You can customize and localize it using the `Twig` template engine. `Dompdf` is used for pdf generation.
-
-[![Latest Stable Version](http://poser.pugx.org/8ctopus/pigeon-invoice/v)](https://packagist.org/packages/8ctopus/pigeon-invoice)
-![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/8ctopus/pigeon-invoice/tests.yml?branch=master)
-[![Total Downloads](http://poser.pugx.org/8ctopus/pigeon-invoice/downloads)](https://packagist.org/packages/8ctopus/pigeon-invoice)
-[![PHP Version Require](http://poser.pugx.org/8ctopus/pigeon-invoice/require/php)](https://packagist.org/packages/8ctopus/pigeon-invoice)
-[![License](http://poser.pugx.org/8ctopus/pigeon-invoice/license)](https://packagist.org/packages/8ctopus/pigeon-invoice)
 
 ## features
 
