@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use Oct8pus\Invoice\Company;
 use PHPUnit\Framework\TestCase;
 

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Oct8pus\Extend;
 
 use Oct8pus\Invoice\Item as BaseItem;
