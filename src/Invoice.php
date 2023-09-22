@@ -162,7 +162,7 @@ class Invoice
             fclose($pipes[1]);
 
             // read errors
-            $errors = stream_get_contents($pipes[2]);
+            //$errors = stream_get_contents($pipes[2]);
             fclose($pipes[2]);
 
             // it is important to close all pipes before calling proc_close in order to avoid a deadlock
