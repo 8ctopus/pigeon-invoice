@@ -1,7 +1,7 @@
 {
     "name": "8ctopus/pigeon-invoice",
     "type": "library",
-    "description": "Create pdf and html invoices using the Twig template engine",
+    "description": "Create pdf and html invoices",
     "keywords": ["invoice", "pdf", "html"],
     "homepage": "https://github.com/8ctopus/pigeon-invoice",
     "license": "MIT",
