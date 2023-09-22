@@ -21,8 +21,8 @@ final class ShippingTest extends TestCase
             ->setName($object->name)
             ->setPrice($object->price);
 
-        static::assertSame($shipping->name(), $object->name);
-        static::assertSame($shipping->price(), $object->price);
+        self::assertSame($shipping->name(), $object->name);
+        self::assertSame($shipping->price(), $object->price);
 
         //$this->assertEquals(gettype((string) $shipping), 'string');
     }

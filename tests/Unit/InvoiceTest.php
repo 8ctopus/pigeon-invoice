@@ -87,26 +87,26 @@ final class InvoiceTest extends TestCase
         $taxAmount = $object->tax->percentage() * ($subtotal + $object->shipping->price() - $object->discount->price());
         $total = $subtotal + $object->shipping->price() - $object->discount->price() + $taxAmount;
 
-        static::assertSame($invoice->seller(), $object->seller);
-        static::assertSame($invoice->buyer(), $object->buyer);
+        self::assertSame($invoice->seller(), $object->seller);
+        self::assertSame($invoice->buyer(), $object->buyer);
 
-        static::assertSame($invoice->date(), $object->date->format('Y-m-d'));
-        static::assertSame($invoice->number(), $object->number);
-        static::assertSame($invoice->currency(), $object->currency);
+        self::assertSame($invoice->date(), $object->date->format('Y-m-d'));
+        self::assertSame($invoice->number(), $object->number);
+        self::assertSame($invoice->currency(), $object->currency);
 
-        static::assertSame($invoice->discount(), $object->discount);
-        static::assertSame($invoice->shipping(), $object->shipping);
-        static::assertSame($invoice->tax(), $object->tax);
-        static::assertEquals($invoice->custom(), (object) $object->custom);
-        static::assertSame($invoice->items(), $items);
+        self::assertSame($invoice->discount(), $object->discount);
+        self::assertSame($invoice->shipping(), $object->shipping);
+        self::assertSame($invoice->tax(), $object->tax);
+        self::assertEquals($invoice->custom(), (object) $object->custom);
+        self::assertSame($invoice->items(), $items);
 
-        static::assertSame($invoice->subtotal(), $subtotal);
-        static::assertSame($invoice->taxAmount(), $taxAmount);
-        static::assertSame($invoice->total(), $total);
+        self::assertSame($invoice->subtotal(), $subtotal);
+        self::assertSame($invoice->taxAmount(), $taxAmount);
+        self::assertSame($invoice->total(), $total);
 
-        static::assertSame(gettype((string) $invoice), 'string');
+        self::assertSame(gettype((string) $invoice), 'string');
 
-        static::assertSame(gettype((string) $invoice->renderHtml()), 'string');
-        static::assertSame(gettype((string) $invoice->renderPdf()), 'string');
+        self::assertSame(gettype((string) $invoice->renderHtml()), 'string');
+        self::assertSame(gettype((string) $invoice->renderPdf()), 'string');
     }
 }

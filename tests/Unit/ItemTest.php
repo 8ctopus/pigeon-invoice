@@ -23,11 +23,11 @@ final class ItemTest extends TestCase
             ->setPrice($object->price)
             ->setQuantity($object->quantity);
 
-        static::assertSame($item->name(), $object->name);
-        static::assertSame($item->price(), $object->price);
-        static::assertEquals($item->quantity(), $object->quantity);
-        static::assertSame($item->subtotal(), $object->quantity * $object->price);
+        self::assertSame($item->name(), $object->name);
+        self::assertSame($item->price(), $object->price);
+        self::assertEquals($item->quantity(), $object->quantity);
+        self::assertSame($item->subtotal(), $object->quantity * $object->price);
 
-        static::assertSame(gettype((string) $item), 'string');
+        self::assertSame(gettype((string) $item), 'string');
     }
 }

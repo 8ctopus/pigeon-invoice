@@ -21,8 +21,8 @@ final class TaxTest extends TestCase
             ->setName($object->name)
             ->setPercentage($object->percentage);
 
-        static::assertSame($tax->name(), $object->name);
-        static::assertSame($tax->percentage(), $object->percentage);
+        self::assertSame($tax->name(), $object->name);
+        self::assertSame($tax->percentage(), $object->percentage);
 
         //$this->assertEquals(gettype((string) $tax), 'string');
     }
