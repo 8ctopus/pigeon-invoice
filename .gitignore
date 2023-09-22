@@ -1,11 +1,10 @@
 # composer
 /composer.lock
-/vendor/*
+/vendor/
 
 # phpunit
-/.phpunit.cache/
-/.phpunit.result.cache
 /coverage/
+/.phpunit.result.cache
 
 # other
 /*.sublime-workspace
