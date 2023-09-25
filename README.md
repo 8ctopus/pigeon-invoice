@@ -8,16 +8,15 @@
 ![code coverage badge](https://raw.githubusercontent.com/8ctopus/pigeon-invoice/image-data/coverage.svg)
 ![lines of code](https://raw.githubusercontent.com/8ctopus/pigeon-invoice/image-data/lines.svg)
 
-Create html and pdf invoices.\
+Create html and pdf invoices
 
 ## features
 
-- pdf or html invoice
-- includes shipping, discount and tax
+- create pdf or html invoice
 - fully customizable thanks to `Twig` templates
-- localizable (supports unicode)
+- localizable with unicode support
 - extendable (see the `extend` dir)
-- 2 pdf engines: Dompdf and wk\<html\>topdf
+- choose between 2 pdf engines: Dompdf and wk\<html\>topdf
 - adjust paper size
 
 ![invoice demo screenshot](screenshot.png)
