@@ -15,6 +15,18 @@ require_once './vendor/autoload.php';
 // command line error handler
 (new \NunoMaduro\Collision\Provider())->register();
 
+$files = [
+    __DIR__ . '/invoice.html',
+    __DIR__ . '/invoice.pdf',
+    __DIR__ . '/invoice-alternate.pdf',
+];
+
+foreach ($files as $file) {
+    if (file_exists($file)) {
+        unlink($file);
+    }
+}
+
 // create invoice
 $invoice = (new Invoice([
     'rootDir' => __DIR__ . DIRECTORY_SEPARATOR . 'resources',
@@ -72,10 +84,10 @@ $pdf = $invoice->renderPdf([
     'paper' => 'A4',
     'orientation' => 'portrait',
     // use wk\<html\>topdf
-    'engine' => 'alternate',
+    //'engine' => 'alternate',
 ]);
 
-file_put_contents('invoice-alternate.pdf', $pdf);
+file_put_contents('invoice.pdf', $pdf);
 
 /*
 // output pdf to browser

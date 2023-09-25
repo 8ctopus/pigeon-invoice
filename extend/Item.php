@@ -22,7 +22,7 @@ class Item extends BaseItem
 
     public function code(string $firstName, string $lastName) : string
     {
-        return 'AAAA-BBBB-CCCC-DDDD';
+        return md5($firstName . $lastName);
     }
 
     public function setVersion(float $version) : self

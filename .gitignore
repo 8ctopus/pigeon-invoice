@@ -9,8 +9,3 @@
 # other
 /*.sublime-workspace
 /.php-cs-fixer.cache
-
-# invoice samples
-/invoice.html
-/invoice.pdf
-/invoice-alternate.pdf
