@@ -20,6 +20,11 @@ abstract class Entity extends Address
         return parent::__toString();
     }
 
+    public function email() : string
+    {
+        return $this->email;
+    }
+
     public function setEmail(string $email) : self
     {
         $this->email = $email;
@@ -41,9 +46,4 @@ abstract class Entity extends Address
     abstract public function firstName() : string;
 
     abstract public function secondName() : string;
-
-    public function email() : string
-    {
-        return $this->email;
-    }
 }
