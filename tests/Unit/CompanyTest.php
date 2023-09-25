@@ -36,8 +36,7 @@ final class CompanyTest extends TestCase
             ->setCountry($object->country)
             ->setEmail($object->email);
 
-        self::assertFalse($company->isPerson());
-        self::assertTrue($company->isCompany());
+        self::assertSame($company->type(), 'Company');
 
         self::assertSame($company->name(), $object->name);
         self::assertSame($company->firstName(), $object->name);

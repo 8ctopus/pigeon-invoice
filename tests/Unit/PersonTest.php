@@ -36,8 +36,7 @@ final class PersonTest extends TestCase
             ->setCountry($object->country)
             ->setEmail($object->email);
 
-        self::assertTrue($person->isPerson());
-        self::assertFalse($person->isCompany());
+        self::assertSame($person->type(), 'Person');
 
         Locale::setDefault('en');
 
