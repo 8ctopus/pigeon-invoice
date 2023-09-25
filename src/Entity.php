@@ -31,14 +31,9 @@ abstract class Entity extends Address
         return $this;
     }
 
-    public function isCompany() : bool
+    public function type() : string
     {
-        return false;
-    }
-
-    public function isPerson() : bool
-    {
-        return false;
+        return substr(strrchr(static::class, '\\'), 1);
     }
 
     abstract public function name() : string;

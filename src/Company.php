@@ -25,11 +25,6 @@ class Company extends Entity
         return "{$this->name}\n" . parent::__toString();
     }
 
-    public function isCompany() : bool
-    {
-        return true;
-    }
-
     public function name() : string
     {
         return $this->name;

@@ -25,11 +25,6 @@ class Person extends Entity
             parent::__toString();
     }
 
-    public function isPerson() : bool
-    {
-        return true;
-    }
-
     public function firstName() : string
     {
         return $this->firstName;
