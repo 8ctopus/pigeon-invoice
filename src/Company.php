@@ -40,15 +40,20 @@ class Company extends Entity
         return $this->name;
     }
 
+    public function recipient() : string
+    {
+        return $this->recipient;
+    }
+
+    public function website() : string
+    {
+        return $this->website;
+    }
+
     public function setName(string $name) : self
     {
         $this->name = $name;
         return $this;
-    }
-
-    public function recipient() : string
-    {
-        return $this->recipient;
     }
 
     public function setRecipient(string $firstName, string $lastName) : self
@@ -65,11 +70,6 @@ class Company extends Entity
         }
 
         return $this;
-    }
-
-    public function website() : string
-    {
-        return $this->website;
     }
 
     public function setWebsite(string $website) : self
