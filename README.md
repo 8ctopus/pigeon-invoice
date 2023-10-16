@@ -16,7 +16,7 @@ Create pdf and html invoices
 - fully customizable thanks to `Twig` templates
 - localizable with unicode support
 - extendable to include custom data (see the `extend` dir)
-- choose between 2 pdf engines: `Dompdf` and `wk<html>topdf`
+- choose between two pdf engines: `Dompdf` and `wk<html>topdf`
 - adjust paper size
 
 ![invoice demo screenshot](screenshot.png)
