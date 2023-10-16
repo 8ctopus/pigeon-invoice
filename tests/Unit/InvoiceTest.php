@@ -92,7 +92,7 @@ final class InvoiceTest extends TestCase
         self::assertSame($invoice->seller(), $object->seller);
         self::assertSame($invoice->buyer(), $object->buyer);
 
-        self::assertSame($invoice->date(), $object->date->format('Y-m-d'));
+        self::assertSame($invoice->date(), $object->date);
         self::assertSame($invoice->number(), $object->number);
         self::assertSame($invoice->currency(), $object->currency);
 

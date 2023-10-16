@@ -271,13 +271,13 @@ class Invoice
         return $this->items;
     }
 
-    public function date() : string
+    public function date() : DateTime
     {
-        if ($this->date) {
-            return $this->date->format('Y-m-d');
+        if (!isset($this->date)) {
+            throw new Exception('date not set');
         }
 
-        throw new Exception('date not set');
+        return $this->date;
     }
 
     public function number() : string
