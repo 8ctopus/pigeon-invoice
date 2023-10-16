@@ -8,22 +8,22 @@
 ![code coverage badge](https://raw.githubusercontent.com/8ctopus/pigeon-invoice/image-data/coverage.svg)
 ![lines of code](https://raw.githubusercontent.com/8ctopus/pigeon-invoice/image-data/lines.svg)
 
-Create html and pdf invoices
+Create pdf and html invoices
 
 ## features
 
-- create pdf or html invoice
+- create pdf and html invoices
 - fully customizable thanks to `Twig` templates
 - localizable with unicode support
-- extendable (see the `extend` dir)
-- choose between 2 pdf engines: Dompdf and wk\<html\>topdf
+- extendable to include custom data (see the `extend` dir)
+- choose between 2 pdf engines: `Dompdf` and `wk<html>topdf`
 - adjust paper size
 
 ![invoice demo screenshot](screenshot.png)
 
 ## requirements
 
-- `php > 8.0` with `ext-dom` and `ext-mbstring`
+- `php > 8.0` with `ext-dom` and `ext-mbstring` installed
 
 ## demo
 
@@ -39,7 +39,7 @@ php demo.php
 
 ## install
 
--
+- install package
 
 ```sh
 composer require 8ctopus/pigeon-invoice
@@ -115,7 +115,7 @@ file_put_contents('invoice.pdf', $pdf);
 
 ## wk\<html\>topdf
 
-To use the wk\<html\>topdf engine, you will need to [download the binary](https://wkhtmltopdf.org/downloads.html) for your system and add it to the current working directory `getcwd()` or it to the system path.
+To use the `wk<html>topdf` engine, you will need to [download the binary](https://wkhtmltopdf.org/downloads.html) for your system and add it to the current working directory `getcwd()` or to the system path.
 
 ## Twig templates reference documentation
 
@@ -123,7 +123,7 @@ To use the wk\<html\>topdf engine, you will need to [download the binary](https:
 
 ## custom fonts and unicode
 
-Custom fonts must be in TrueType (\*.ttf) format.
+Custom fonts must be in TrueType `*.ttf` format.
 
     https://github.com/dompdf/dompdf/wiki/UnicodeHowTo
 
