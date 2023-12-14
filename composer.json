@@ -13,8 +13,8 @@
     ],
     "require": {
         "php": ">=8.0",
-        "twig/twig": "^3.0",
         "dompdf/dompdf": "dev-master#05abdb3dbf51cb2263080b500a63ec483d5d4125",
+        "twig/twig": "^3.0",
         "twig/intl-extra": "^3.3"
     },
     "require-dev": {
@@ -26,6 +26,9 @@
     },
     "minimum-stability": "stable",
     "prefer-stable": true,
+    "config": {
+        "sort-packages": true
+    },
     "autoload": {
         "psr-4": {
             "Oct8pus\\Invoice\\": "src"
