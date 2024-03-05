@@ -8,7 +8,7 @@ class Address
 {
     protected string $street1;
     protected string $street2;
-    protected string $zip;
+    protected ?string $zip;
     protected string $city;
     protected string $country;
 
@@ -45,7 +45,7 @@ class Address
         return $this->street2;
     }
 
-    public function zip() : string
+    public function zip() : ?string
     {
         return $this->zip;
     }
@@ -72,7 +72,7 @@ class Address
         return $this;
     }
 
-    public function setZip(string $zip) : self
+    public function setZip(?string $zip) : self
     {
         $this->zip = $zip;
         return $this;
