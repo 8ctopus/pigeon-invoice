@@ -26,6 +26,7 @@ final class PersonTest extends TestCase
             'email' => 'test@yandex.ru',
         ];
 
+        /** @disregard P1013 */
         $person = (new Person())
             ->setFirstName($object->firstName)
             ->setLastName($object->lastName)

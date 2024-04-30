@@ -26,6 +26,7 @@ final class CompanyTest extends TestCase
             'email' => 'test@yandex.ru',
         ];
 
+        /** @disregard P1013 */
         $company = (new Company())
             ->setName($object->name)
             ->setWebsite($object->website)

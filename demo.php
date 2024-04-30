@@ -28,6 +28,7 @@ foreach ($files as $file) {
 }
 
 // create invoice
+/** @disregard P1013 */
 $invoice = (new Invoice([
     'rootDir' => __DIR__ . DIRECTORY_SEPARATOR . 'resources',
     'templatesDir' => 'templates',
