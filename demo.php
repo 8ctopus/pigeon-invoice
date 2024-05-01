@@ -68,6 +68,8 @@ $invoice = (new Invoice([
         'notes' => 'Thank you for shopping with us!',
     ]);
 
+echo "render html..." . PHP_EOL;
+
 $html = $invoice->renderHtml();
 
 file_put_contents('invoice.html', $html);
@@ -78,12 +80,15 @@ if (!file_exists($cache)) {
     mkdir($cache);
 }
 
+echo "render pdf... (may take some time the first time to download the fonts" . PHP_EOL;
+
 $pdf = $invoice->renderPdf([
     'paper' => 'A4',
     'orientation' => 'portrait',
     // allows to download content such as fonts
     'isRemoteEnabled' => true,
     'cache' => $cache,
+    'debug' => true,
 ]);
 
 file_put_contents('invoice.pdf', $pdf);
