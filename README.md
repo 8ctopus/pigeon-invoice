@@ -121,7 +121,7 @@ To use the `wk<html>topdf` engine, you will need to [download the binary](https:
 
     https://twig.symfony.com/doc/3.x/
 
-## custom fonts and unicode
+## custom fonts
 
 Fonts can either be provided in the css as `*.ttf` format:
 
@@ -129,7 +129,7 @@ Fonts can either be provided in the css as `*.ttf` format:
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 ```
 
-or as a header link (requires `isRemoteEnabled` permission):
+or as a link in the html head (requires `isRemoteEnabled` permission):
 
 ```css
 @font-face {
@@ -142,6 +142,26 @@ or as a header link (requires `isRemoteEnabled` permission):
     font-family: 'Tangerine';
     src: url('../fonts/tangerine-700.ttf');
     font-weight: bold;
+}
+```
+
+## unicode
+
+A font supports a limited number of languages, and therefore if you want to support many different languages, you will need to add fallback fonts. Here's an example where the default font is `Segoe UI` (latin languages), then it falls back to `Meiyro UI` for Japanese, and `Malgun Gothic` for Korean:
+
+```css
+font-family: 'Segoe UI', 'Meiryo UI', 'Malgun Gothic', sans-serif;
+```
+
+Font fallback is not yet released in the production version 2.0.0 of `Dompdf`, you will need to force composer to use a specific commit:
+
+```json
+{
+    "require": {
+        "dompdf/dompdf": "dev-master#05abdb3dbf51cb2263080b500a63ec483d5d4125",
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true,
 }
 ```
 
