@@ -89,6 +89,8 @@ $pdf = $invoice->renderPdf([
     'isRemoteEnabled' => true,
     'cache' => $cache,
     'debug' => true,
+    //'PDFLib', 'CPDF', 'GD', and 'auto'
+    'pdfBackend' => 'CPDF',
 ]);
 
 file_put_contents('invoice.pdf', $pdf);
