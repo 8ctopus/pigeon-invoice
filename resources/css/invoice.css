@@ -82,6 +82,13 @@ table#items th:nth-child(4) {
     width: 16.6%;
 }
 
+table#items th:nth-child(2),
+table#items td:nth-child(2),
+table#items th:nth-child(3),
+table#items td:nth-child(3) {
+    text-align: right;
+}
+
 table#items th:last-child,
 table#items td:last-child {
     padding-right: 1.5rem;
