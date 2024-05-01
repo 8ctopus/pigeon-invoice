@@ -214,7 +214,7 @@ class Invoice
                 'isHtml5ParserEnabled' => true,
 
                 // debugging
-                'logOutputFile' => '',
+                //'logOutputFile' => __DIR__ . '/log.html',
                 // extra messaging
                 'debugPng' => false,
                 // don't delete temp files
