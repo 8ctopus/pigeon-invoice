@@ -81,7 +81,8 @@ if (!file_exists($tmp)) {
 $pdf = $invoice->renderPdf([
     'paper' => 'A4',
     'orientation' => 'portrait',
-    'isRemoteEnabled' => true,
+    // allows to download content such as fonts
+    'isRemoteEnabled' => false,
     'tmp' => $tmp,
 ]);
 
