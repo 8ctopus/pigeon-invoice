@@ -82,7 +82,7 @@ $pdf = $invoice->renderPdf([
     'paper' => 'A4',
     'orientation' => 'portrait',
     // allows to download content such as fonts
-    'isRemoteEnabled' => false,
+    'isRemoteEnabled' => true,
     'cache' => $cache,
 ]);
 
