@@ -106,6 +106,8 @@ file_put_contents('invoice.html', $html);
 $pdf = $invoice->renderPdf([
     'paper' => 'A4',
     'orientation' => 'portrait',
+    // allow to download content from the internet such as fonts
+    'isRemoteEnabled' => true,
     // uncomment to use wk\<html\>topdf
     //'engine' => 'alternate',
 ]);
@@ -123,13 +125,13 @@ To use the `wk<html>topdf` engine, you will need to [download the binary](https:
 
 ## custom fonts
 
-Fonts can either be provided in the css as `*.ttf` format:
+Fonts can either be provided as a style sheet link in the html head, which requires the `isRemoteEnabled` permission:
 
 ```html
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;700&display=swap" rel="stylesheet">
 ```
 
-or as a link in the html head (requires `isRemoteEnabled` permission):
+or directly in the css, but only in TrueType `*.ttf` format:
 
 ```css
 @font-face {
@@ -170,6 +172,7 @@ More info: https://github.com/dompdf/dompdf/wiki/UnicodeHowTo
 ## credits
 
 - Dompdf https://github.com/dompdf/dompdf
+- CPdf https://github.com/PhenX/CPdf (used internally by dompdf)
 - wk\<html\>topdf https://wkhtmltopdf.org/
 - Twig https://github.com/twigphp/Twig
 - logo https://www.canva.com/design
