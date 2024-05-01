@@ -40,7 +40,7 @@ $invoice = (new Invoice([
         ->setZip('119021')
         ->setCity('Moscow')
         ->setCountry('Russia')
-        ->setWebsite('https://www.widgets.ru')
+        ->setWebsite('https://widgets.ru')
         ->setEmail('hello@widgets.ru'))
 
     ->setBuyer((new Person())
