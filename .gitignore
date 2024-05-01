@@ -11,3 +11,4 @@
 /.php-cs-fixer.cache
 /invoice*.pdf
 /invoice*.html
+/cache/

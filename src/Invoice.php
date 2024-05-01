@@ -187,16 +187,11 @@ class Invoice
             ];
             */
 
-            // get temporary directory
-            if (array_key_exists('tmp', $options)) {
-                $tmp = $options['tmp'];
-            } else {
-                $tmp = sys_get_temp_dir();
-            }
+            $tmp = $options['tmp'] ?? sys_get_temp_dir();
 
             $options = array_merge([
                 // required to load remote content such as fonts
-                'isRemoteEnabled' => true,
+                'isRemoteEnabled' => $options['isRemoteEnabled'] ?? false,
 
                 // required to add logo and css but can have security implications
                 'chroot' => [

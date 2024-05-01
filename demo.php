@@ -72,9 +72,17 @@ $html = $invoice->renderHtml();
 
 file_put_contents('invoice.html', $html);
 
+$tmp = __DIR__ . '/cache';
+
+if (!file_exists($tmp)) {
+    mkdir($tmp);
+}
+
 $pdf = $invoice->renderPdf([
     'paper' => 'A4',
     'orientation' => 'portrait',
+    'isRemoteEnabled' => true,
+    'tmp' => $tmp,
 ]);
 
 file_put_contents('invoice.pdf', $pdf);
