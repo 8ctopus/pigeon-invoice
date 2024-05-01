@@ -16,7 +16,7 @@ Create pdf and html invoices
 - fully customizable thanks to `Twig` templates
 - localizable with unicode support
 - extendable to include custom data (see the `extend` dir)
-- choose between two pdf engines: `Dompdf` and `wk<html>topdf`
+- choice of pdf engines: `Dompdf` using either `CPDF` or `PDFLib` and `wk<html>topdf`
 - adjust paper size
 
 ![invoice demo screenshot](screenshot.png)
@@ -117,9 +117,11 @@ file_put_contents('invoice.pdf', $pdf);
 
 ## pdf engines
 
-- `CPDF` is included within `DomPdf`
-- `PDFLib` is a commercial library https://www.pdflib.com/ that needs to be installed
-- `GD` will make a graphic pdf
+- `Dompdf` includes three engines
+    - `CPDF` (bundled with Dompdf)
+    - `PDFLib` is a commercial library https://www.pdflib.com/ that needs the extension to be installed
+    - `GD` will make a graphic pdf
+
 - `wk<html>topdf`
 
 To use the `wk<html>topdf` engine, you will need to [download the binary](https://wkhtmltopdf.org/downloads.html) for your system and add it to the current working directory `getcwd()` or to the system path.
@@ -177,7 +179,7 @@ More info: https://github.com/dompdf/dompdf/wiki/UnicodeHowTo
 ## credits
 
 - Dompdf https://github.com/dompdf/dompdf
-- CPdf https://github.com/PhenX/CPdf (used internally by dompdf)
+- CPDF https://github.com/PhenX/CPdf (used internally by Dompdf)
 - wk\<html\>topdf https://wkhtmltopdf.org/
 - Twig https://github.com/twigphp/Twig
 - logo https://www.canva.com/design
