@@ -195,7 +195,7 @@ class Invoice
             }
 
             $options = array_merge([
-                // required to load remote content
+                // required to load remote content such as fonts
                 'isRemoteEnabled' => true,
 
                 // required to add logo and css but can have security implications

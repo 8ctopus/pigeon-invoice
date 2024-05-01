@@ -123,9 +123,29 @@ To use the `wk<html>topdf` engine, you will need to [download the binary](https:
 
 ## custom fonts and unicode
 
-Custom fonts must be in TrueType `*.ttf` format.
+Fonts can either be provided in the css as `*.ttf` format:
 
-    https://github.com/dompdf/dompdf/wiki/UnicodeHowTo
+```html
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+```
+
+or as a header link (requires `isRemoteEnabled` permission):
+
+```css
+@font-face {
+    font-family: 'Tangerine';
+    src: url('../fonts/tangerine-400.ttf');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Tangerine';
+    src: url('../fonts/tangerine-700.ttf');
+    font-weight: bold;
+}
+```
+
+More info: https://github.com/dompdf/dompdf/wiki/UnicodeHowTo
 
 ## credits
 

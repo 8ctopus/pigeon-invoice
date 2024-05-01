@@ -1,3 +1,4 @@
+/* fonts can be loaded from ttf file or using head links, see invoice.twig */
 @font-face {
     font-family: 'Tangerine';
     src: url('../fonts/tangerine-400.ttf');
@@ -14,9 +15,7 @@ body {
     margin-left: 1rem;
     margin-right: 1rem;
 
-    /*
-    font-family: 'Tangerine';
-     */
+    font-family: 'Roboto', 'Tangerine';
     font-size: 78%;
 }
 
