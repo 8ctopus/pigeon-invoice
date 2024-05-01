@@ -85,19 +85,10 @@ echo "render pdf... (may take some time the first time to download the fonts" . 
 $pdf = $invoice->renderPdf([
     'paper' => 'A4',
     'orientation' => 'portrait',
-    // allows to download content such as fonts
+    // allow to download content from the internet such as fonts
     'isRemoteEnabled' => true,
     'cache' => $cache,
     'debug' => true,
-]);
-
-file_put_contents('invoice.pdf', $pdf);
-
-$pdf = $invoice->renderPdf([
-    'paper' => 'A4',
-    'orientation' => 'portrait',
-    // use wk\<html\>topdf
-    //'engine' => 'alternate',
 ]);
 
 file_put_contents('invoice.pdf', $pdf);
