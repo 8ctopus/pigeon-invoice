@@ -72,10 +72,10 @@ $html = $invoice->renderHtml();
 
 file_put_contents('invoice.html', $html);
 
-$tmp = __DIR__ . '/cache';
+$cache = __DIR__ . '/cache';
 
-if (!file_exists($tmp)) {
-    mkdir($tmp);
+if (!file_exists($cache)) {
+    mkdir($cache);
 }
 
 $pdf = $invoice->renderPdf([
@@ -83,7 +83,7 @@ $pdf = $invoice->renderPdf([
     'orientation' => 'portrait',
     // allows to download content such as fonts
     'isRemoteEnabled' => false,
-    'tmp' => $tmp,
+    'cache' => $cache,
 ]);
 
 file_put_contents('invoice.pdf', $pdf);

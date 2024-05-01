@@ -187,7 +187,7 @@ class Invoice
             ];
             */
 
-            $tmp = $options['tmp'] ?? sys_get_temp_dir();
+            $cache = $options['cache'] ?? sys_get_temp_dir();
 
             $options = array_merge([
                 // required to load remote content such as fonts
@@ -196,14 +196,14 @@ class Invoice
                 // required to add logo and css but can have security implications
                 'chroot' => [
                     $this->rootDir,
-                    $tmp,
+                    $cache,
                 ],
 
                 // fonts ttf, ufm and php files
-                'fontDir' => $tmp,
+                'fontDir' => $cache,
                 // for fonts php files
-                'fontCache' => $tmp,
-                'tempDir' => $tmp,
+                'fontCache' => $cache,
+                'tempDir' => $cache,
 
                 // https://github.com/dompdf/dompdf/wiki/HTML5-Parser
                 'isHtml5ParserEnabled' => true,
