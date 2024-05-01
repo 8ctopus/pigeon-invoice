@@ -10,10 +10,11 @@ use Oct8pus\Invoice\Person;
 use Oct8pus\Invoice\Shipping;
 use Oct8pus\Invoice\Tax;
 
-require_once './vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
 // command line error handler
-(new \NunoMaduro\Collision\Provider())->register();
+(new \NunoMaduro\Collision\Provider())
+    ->register();
 
 $files = [
     __DIR__ . '/invoice.html',
@@ -27,10 +28,9 @@ foreach ($files as $file) {
     }
 }
 
-// create invoice
 /** @disregard P1013 */
 $invoice = (new Invoice([
-    'rootDir' => __DIR__ . DIRECTORY_SEPARATOR . 'resources',
+    'rootDir' => __DIR__ . '/resources',
     'templatesDir' => 'templates',
     'locale' => 'en',
 ]))
@@ -61,9 +61,7 @@ $invoice = (new Invoice([
     ->addItem((new Item())->setName('Item 3')->setPrice(3.99)->setQuantity(3)->setVersion(1.000))
 
     ->setDiscount((new Discount())->setName('Special Offer')->setPrice(10.00))
-
     ->setShipping((new Shipping())->setName('Shipping')->setPrice(5.00))
-
     ->setTax((new Tax())->setName('VAT')->setPercentage(0.21))
 
     ->setCustomFields([
