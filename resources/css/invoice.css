@@ -1,4 +1,3 @@
-/* fonts can be loaded from ttf file or using head links, see invoice.twig */
 @font-face {
     font-family: 'Tangerine';
     src: url('../fonts/tangerine-400.ttf');
