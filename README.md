@@ -153,7 +153,7 @@ A font supports a limited number of languages, and therefore if you want to supp
 font-family: 'Segoe UI', 'Meiryo UI', 'Malgun Gothic', sans-serif;
 ```
 
-Font fallback is not yet released in the production version 2.0.0 of `Dompdf`, you will need to force composer to use a specific commit:
+Font fallback is not yet released in the production version 2.0.0 of `Dompdf`, for now it's only available on the master branch, you will need to force composer to use a specific commit from this branch:
 
 ```json
 {
