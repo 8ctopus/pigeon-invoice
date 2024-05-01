@@ -45,5 +45,15 @@
         "fix-risky": "php-cs-fixer fix --allow-risky=yes --verbose",
         "phpstan": "phpstan analyse --level 9 src",
         "phpmd": "phpmd src ansi phpmd.xml"
+    },
+    "archive": {
+        "exclude": [
+            "/cache/",
+            "/extend/",
+            "/invoice.*",
+            "/resources/",
+            "/screenshot.png",
+            "/vendor/"
+        ]
     }
 }
