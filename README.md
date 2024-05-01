@@ -108,14 +108,19 @@ $pdf = $invoice->renderPdf([
     'orientation' => 'portrait',
     // allow to download content from the internet such as fonts
     'isRemoteEnabled' => true,
-    // uncomment to use wk\<html\>topdf
-    //'engine' => 'alternate',
+    // valid options: CPDF, PDFLib, GD, wkhtmltopdf and auto
+    'pdfBackend' => 'CPDF',
 ]);
 
 file_put_contents('invoice.pdf', $pdf);
 ```
 
-## wk\<html\>topdf
+## pdf engines
+
+- `CPDF` is included within `DomPdf`
+- `PDFLib` is a commercial library https://www.pdflib.com/ that needs to be installed
+- `GD` will make a graphic pdf
+- `wk<html>topdf`
 
 To use the `wk<html>topdf` engine, you will need to [download the binary](https://wkhtmltopdf.org/downloads.html) for your system and add it to the current working directory `getcwd()` or to the system path.
 

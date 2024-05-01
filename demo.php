@@ -89,7 +89,7 @@ $pdf = $invoice->renderPdf([
     'isRemoteEnabled' => true,
     'cache' => $cache,
     'debug' => true,
-    //'PDFLib', 'CPDF', 'GD', and 'auto'
+    // valid options: CPDF, PDFLib, GD, wkhtmltopdf and auto
     'pdfBackend' => 'CPDF',
 ]);
 

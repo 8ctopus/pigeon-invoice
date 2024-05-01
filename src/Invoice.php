@@ -126,7 +126,7 @@ class Invoice
      */
     public function renderPdf(array $options = []) : string
     {
-        if (array_key_exists('engine', $options) && $options['engine'] === 'alternate') {
+        if (($options['engine'] ?? '') === 'wkhtmltopdf') {
             return $this->renderWK($options);
         }
 
