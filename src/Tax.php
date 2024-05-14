@@ -37,4 +37,3 @@ class Tax
         return $this;
     }
 }
-
