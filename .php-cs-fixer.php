@@ -1,8 +1,6 @@
 <?php
 
 $finder = PhpCsFixer\Finder::create()
-    ->exclude('vendor/')
-//    ->notPath('src/Symfony/Component/Translation/Tests/fixtures/resources.php')
     ->in('.');
 
 $fixer = (new PhpCsFixer\Config('', ''))
