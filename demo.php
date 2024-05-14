@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use NunoMaduro\Collision\Provider;
 use Oct8pus\Extend\Item;
 use Oct8pus\Invoice\Company;
 use Oct8pus\Invoice\Discount;
@@ -13,7 +14,7 @@ use Oct8pus\Invoice\Tax;
 require_once __DIR__ . '/vendor/autoload.php';
 
 // command line error handler
-(new \NunoMaduro\Collision\Provider())
+(new Provider())
     ->register();
 
 $files = [
@@ -68,7 +69,7 @@ $invoice = (new Invoice([
         'notes' => 'Thank you for shopping with us!',
     ]);
 
-echo "render html..." . PHP_EOL;
+echo 'render html...' . PHP_EOL;
 
 $html = $invoice->renderHtml();
 
@@ -80,7 +81,7 @@ if (!file_exists($cache)) {
     mkdir($cache);
 }
 
-echo "render pdf... (may take some time the first time to download the fonts" . PHP_EOL;
+echo 'render pdf... (may take some time the first time to download the fonts' . PHP_EOL;
 
 $pdf = $invoice->renderPdf([
     'paper' => 'A4',
