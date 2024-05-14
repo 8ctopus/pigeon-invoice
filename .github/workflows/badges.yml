@@ -21,7 +21,7 @@ jobs:
       - name: Install PHP
         uses: shivammathur/setup-php@2.24.0
         with:
-          php-version: 8.2
+          php-version: 8.3
           extensions: xdebug
           ini-values: zend.assertions=1
 
@@ -32,9 +32,9 @@ jobs:
         timeout-minutes: 3
         run: vendor/bin/phpunit --coverage-clover clover.xml
 
-      - name: Get lines of code (more sophisticated)
+      - name: Get lines of code (more sophisticated, uses scc)
         id: scc
-        uses: iryanbell/scc-docker-action@v1.0.2
+        uses: hdmsantander/scc-docker-action@3.0
         with:
           args: ${{ env.workspace }} -i php --exclude-dir vendor --format json src
 
@@ -42,7 +42,7 @@ jobs:
         uses: emibcn/badge-action@v2.0.2
         with:
           label: Lines of Code
-          status: ${{ fromJson(steps.scc.outputs.scc)[0].Code }}
+          status: ${{ fromJson(steps.scc.outputs.scc.json)[0].Code }}
           color: 'blue'
           path: .github/lines.svg
 
