@@ -3,8 +3,8 @@
 /vendor/
 
 # phpunit
-/coverage/
 /.phpunit.result.cache
+/coverage/
 
 # other
 /*.sublime-workspace
