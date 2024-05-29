@@ -6,7 +6,6 @@ namespace Oct8pus\Invoice;
 
 use DateTime;
 use Dompdf\Dompdf;
-use Exception;
 use Locale;
 use stdClass;
 use Twig\Environment;
@@ -122,12 +121,20 @@ class Invoice
      *
      * @return string
      *
-     * @throws Exception
+     * @throws InvoiceException
      */
     public function renderPdf(array $options = []) : string
     {
-        if (($options['engine'] ?? '') === 'wkhtmltopdf') {
+        $engine = $options['engine'] ?? '';
+
+        if ($engine === 'wkhtmltopdf') {
             return $this->renderWK($options);
+        }
+
+        if ($engine === 'PDFLib') {
+            if (!extension_loaded('PDFLib')) {
+                throw new InvoiceException('PDFLib extension not found');
+            }
         }
 
         if ($options['debug'] ?? null) {
@@ -201,7 +208,7 @@ class Invoice
             return $output;
         }
 
-        throw new Exception('dompdf output');
+        throw new InvoiceException('dompdf output');
     }
 
     public function seller() : ?Entity
@@ -225,7 +232,7 @@ class Invoice
     public function date() : DateTime
     {
         if (!isset($this->date)) {
-            throw new Exception('date not set');
+            throw new InvoiceException('date not set');
         }
 
         return $this->date;
@@ -268,7 +275,7 @@ class Invoice
         $total = $this->subtotal() + $this->shipping?->price() - $this->discount?->price() + $this->taxAmount();
 
         if ($total <= 0) {
-            throw new Exception('invoice total <= 0');
+            throw new InvoiceException('invoice total <= 0');
         }
 
         return $total;
@@ -391,7 +398,7 @@ class Invoice
         }
 
         if (!file_exists($exe)) {
-            throw new Exception('cannot find wkhtmltopdf executable');
+            throw new InvoiceException('cannot find wkhtmltopdf executable');
         }
 
         $descriptorSpec = [
@@ -407,7 +414,7 @@ class Invoice
         $process = proc_open("{$exe} --enable-local-file-access --page-size {$options['paper']} --orientation {$options['orientation']} - -", $descriptorSpec, $pipes, null, null, null);
 
         if (!is_resource($process)) {
-            throw new Exception('wkhtmltopdf open process');
+            throw new InvoiceException('wkhtmltopdf open process');
         }
 
         // write input data
@@ -427,6 +434,6 @@ class Invoice
             return $pdf;
         }
 
-        throw new Exception('wkhtmltopdf process return value');
+        throw new InvoiceException('wkhtmltopdf process return value');
     }
 }
