@@ -56,7 +56,7 @@ use Oct8pus\Invoice\Person;
 use Oct8pus\Invoice\Shipping;
 use Oct8pus\Invoice\Tax;
 
-require_once './vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
 $invoice = (new Invoice([
     'rootDir' => __DIR__ . DIRECTORY_SEPARATOR . 'resources',
