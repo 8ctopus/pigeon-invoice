@@ -119,8 +119,8 @@ file_put_contents('invoice.pdf', $pdf);
 
 - `Dompdf` includes three engines
     - `CPDF` (bundled with Dompdf)
-    - `PDFLib` is a commercial library https://www.pdflib.com/ that needs the extension to be installed
-    - `GD` will make a graphic pdf
+    - [`PDFLib`](https://www.pdflib.com/) is a commercial library with more advanced rendering than `CPDF`. It takes the form of a php extension that you will need to add to your php configuration.
+    - `GD` will produce a pdf containing an image
 
 - `wk<html>topdf`
 
