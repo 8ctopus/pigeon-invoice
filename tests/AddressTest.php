@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace Tests;
+
 use Oct8pus\Invoice\Address;
 use PHPUnit\Framework\TestCase;
 

@@ -2,6 +2,9 @@
 
 declare(strict_types=1);
 
+namespace Tests;
+
+use Locale;
 use Oct8pus\Invoice\Person;
 use PHPUnit\Framework\TestCase;
 
