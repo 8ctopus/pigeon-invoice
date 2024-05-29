@@ -131,10 +131,8 @@ class Invoice
             return $this->renderWK($options);
         }
 
-        if ($engine === 'PDFLib') {
-            if (!extension_loaded('PDFLib')) {
-                throw new InvoiceException('PDFLib extension not found');
-            }
+        if ($engine === 'PDFLib' && !extension_loaded('PDFLib')) {
+            throw new InvoiceException('PDFLib extension not found');
         }
 
         if ($options['debug'] ?? null) {
