@@ -98,3 +98,7 @@ table#items td:last-child {
     padding-right: 1.5rem;
     text-align: right;
 }
+
+.tangerine {
+    font-family: 'Tangerine';
+}
