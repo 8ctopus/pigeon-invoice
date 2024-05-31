@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Invoice {{ invoice.number }}</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100..900&family=Noto+Sans+JP:wght@100..900&family=Noto+Sans+KR:wght@100..900&family=Noto+Sans+SC:wght@100..900&family=Noto+Sans:wght@100..900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ invoice.rootDir }}/css/invoice.css" />
 </head>
 <body>
@@ -89,7 +89,7 @@
 
 <hr>
 <p class="right">
-    {{ invoice.custom.notes }}
+    {{ invoice.custom.notes|raw }}
 </p>
 </body>
 </html>

@@ -66,7 +66,18 @@ $invoice = (new Invoice([
     ->setTax((new Tax())->setName('VAT')->setPercentage(0.21))
 
     ->setCustomFields([
-        'notes' => 'Thank you for shopping with us!',
+        'notes' => <<<TEXT
+        Thank you for shopping with us!<br>
+        Merci d'avoir fait vos achats chez nous!<br>
+        Vielen Dank für Ihren Einkauf!<br>
+        Спасибо что покупаете у нас!<br>
+        Ευχαριστούμε που αγοράσατε από εμάς!<br>
+        ご利用いただきありがとうございます！<br>
+        感谢您的惠顾！<br>
+        우리 가게를 찾아주셔서 감사합니다!<br>
+        را لتسوقك معنا!<br>
+
+        TEXT
     ]);
 
 echo 'render html...' . PHP_EOL;
@@ -81,7 +92,11 @@ if (!file_exists($cache)) {
     mkdir($cache);
 }
 
-echo 'render pdf... (may take some time the first time to download the fonts' . PHP_EOL;
+echo <<<TXT
+render pdf...
+this will take some time the first time to download the fonts
+
+TXT;
 
 $pdf = $invoice->renderPdf([
     'paper' => 'A4',
@@ -89,7 +104,7 @@ $pdf = $invoice->renderPdf([
     // allow to download content from the internet such as fonts
     'isRemoteEnabled' => true,
     'cache' => $cache,
-    'debug' => true,
+    'debug' => false,
     // valid options: CPDF, PDFLib, GD, wkhtmltopdf and auto
     'pdfBackend' => 'PDFLib',
     // PDFLib license

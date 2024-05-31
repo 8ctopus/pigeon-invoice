@@ -138,7 +138,7 @@ Fonts can either be provided as a style sheet link in the html head, which requi
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;700&display=swap" rel="stylesheet">
 ```
 
-or directly in the css, but only in TrueType `*.ttf` format:
+or from the local drive using css, but only in TrueType `*.ttf` format:
 
 ```css
 @font-face {
@@ -154,24 +154,14 @@ or directly in the css, but only in TrueType `*.ttf` format:
 }
 ```
 
-## unicode
+I would recommend you use the second variant in production.
 
-A font supports a limited number of languages, and therefore if you want to support many different languages, you will need to add fallback fonts. Here's an example where the default font is `Segoe UI` (latin languages), then it falls back to `Meiyro UI` for Japanese, and `Malgun Gothic` for Korean:
+## more languages support
+
+A font supports a limited number of languages, and therefore if you want to support many different languages, you will need to add fonts that have the glyphs for the language characters. Here's an example where the default font is `Segoe UI` (latin languages), then it falls back to `Meiyro UI` for Japanese, and `Malgun Gothic` for Korean:
 
 ```css
 font-family: 'Segoe UI', 'Meiryo UI', 'Malgun Gothic', sans-serif;
-```
-
-Font fallback is not yet released in the production version 2.0.0 of `Dompdf`, for now it's only available on the master branch, you will need to force composer to use a specific commit from this branch:
-
-```json
-{
-    "require": {
-        "dompdf/dompdf": "dev-master#05abdb3dbf51cb2263080b500a63ec483d5d4125",
-    },
-    "minimum-stability": "stable",
-    "prefer-stable": true,
-}
 ```
 
 More info: https://github.com/dompdf/dompdf/wiki/UnicodeHowTo
