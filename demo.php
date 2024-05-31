@@ -106,7 +106,7 @@ $pdf = $invoice->renderPdf([
     'cache' => $cache,
     'debug' => false,
     // valid options: CPDF, PDFLib, GD, wkhtmltopdf and auto
-    'pdfBackend' => 'PDFLib',
+    'pdfBackend' => 'CPDF',
     // PDFLib license
     //'pdflibLicense' => '',
 ]);
