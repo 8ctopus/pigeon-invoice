@@ -14,7 +14,7 @@ Create pdf and html invoices
 
 - create pdf and html invoices
 - fully customizable thanks to `Twig` templates
-- localizable with unicode support
+- localizable (demo shows Arabic, French, German, Greek, Japanese, Korean, Russian and Traditional Chinese)
 - extendable to include custom data (see the `extend` dir)
 - choice of pdf engines: `Dompdf` using either `CPDF` or `PDFLib` and `wk<html>topdf`
 - adjust paper size
