@@ -1,9 +1,9 @@
 # The pigeon invoice
 
-[![packagist](http://poser.pugx.org/8ctopus/pigeon-invoice/v)](https://packagist.org/packages/8ctopus/pigeon-invoice)
-[![downloads](http://poser.pugx.org/8ctopus/pigeon-invoice/downloads)](https://packagist.org/packages/8ctopus/pigeon-invoice)
-[![min php version](http://poser.pugx.org/8ctopus/pigeon-invoice/require/php)](https://packagist.org/packages/8ctopus/pigeon-invoice)
-[![license](http://poser.pugx.org/8ctopus/pigeon-invoice/license)](https://packagist.org/packages/8ctopus/pigeon-invoice)
+[![packagist](https://poser.pugx.org/8ctopus/pigeon-invoice/v)](https://packagist.org/packages/8ctopus/pigeon-invoice)
+[![downloads](https://poser.pugx.org/8ctopus/pigeon-invoice/downloads)](https://packagist.org/packages/8ctopus/pigeon-invoice)
+[![min php version](https://poser.pugx.org/8ctopus/pigeon-invoice/require/php)](https://packagist.org/packages/8ctopus/pigeon-invoice)
+[![license](https://poser.pugx.org/8ctopus/pigeon-invoice/license)](https://packagist.org/packages/8ctopus/pigeon-invoice)
 [![tests](https://github.com/8ctopus/pigeon-invoice/actions/workflows/tests.yml/badge.svg)](https://github.com/8ctopus/pigeon-invoice/actions/workflows/tests.yml)
 ![code coverage badge](https://raw.githubusercontent.com/8ctopus/pigeon-invoice/image-data/coverage.svg)
 ![lines of code](https://raw.githubusercontent.com/8ctopus/pigeon-invoice/image-data/lines.svg)
