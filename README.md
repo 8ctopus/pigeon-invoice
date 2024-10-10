@@ -8,7 +8,7 @@
 ![code coverage badge](https://raw.githubusercontent.com/8ctopus/pigeon-invoice/image-data/coverage.svg)
 ![lines of code](https://raw.githubusercontent.com/8ctopus/pigeon-invoice/image-data/lines.svg)
 
-Create pdf and html invoices
+Create pdf invoices
 
 ## features
 
@@ -156,13 +156,15 @@ or from the local drive using css, but only in TrueType `*.ttf` format:
 
 I would recommend you use the second variant in production.
 
-## more languages support
+## support more languages
 
 A font supports a limited number of languages, and therefore if you want to support many different languages, you will need to add fonts that have the glyphs for the language characters. Here's an example where the default font is `Segoe UI` (latin languages), then it falls back to `Meiyro UI` for Japanese, and `Malgun Gothic` for Korean:
 
 ```css
 font-family: 'Segoe UI', 'Meiryo UI', 'Malgun Gothic', sans-serif;
 ```
+
+If the font does not support the language, you will see small squares instead of the correct characters. These are called `tofu` because they resemble small blocks of tofu.
 
 More info: https://github.com/dompdf/dompdf/wiki/UnicodeHowTo
 
