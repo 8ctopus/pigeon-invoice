@@ -17,6 +17,7 @@ class Invoice
     protected string $templatesDir;
     protected string $rootDir;
     protected string $locale;
+    protected string $template;
 
     protected ?DateTime $date;
     protected string $number;
@@ -52,6 +53,7 @@ class Invoice
         $this->rootDir = $settings->rootDir;
         $this->templatesDir = $this->rootDir . \DIRECTORY_SEPARATOR . $settings->templatesDir;
         $this->locale = $settings->locale;
+        $this->template = $settings->template ?? 'invoice.twig';
 
         $this->date = null;
         $this->number = '';
@@ -107,7 +109,7 @@ class Invoice
         // support for number formatting
         $twig->addExtension(new IntlExtension());
 
-        $this->html = $twig->render('invoice.twig', [
+        $this->html = $twig->render($this->template, [
             'invoice' => $this,
         ]);
 
