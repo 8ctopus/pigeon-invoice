@@ -6,6 +6,4 @@ namespace Oct8pus\Invoice;
 
 use Exception;
 
-class InvoiceException extends Exception
-{
-}
+class InvoiceException extends Exception {}

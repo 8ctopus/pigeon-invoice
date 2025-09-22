@@ -66,7 +66,7 @@ $invoice = (new Invoice([
     ->setTax((new Tax())->setName('VAT')->setPercentage(0.21))
 
     ->setCustomFields([
-        'notes' => <<<TEXT
+        'notes' => <<<'TEXT'
         Thank you for shopping with us!<br>
         Merci d'avoir fait vos achats chez nous!<br>
         Vielen Dank für Ihren Einkauf!<br>
@@ -77,7 +77,7 @@ $invoice = (new Invoice([
         우리 가게를 찾아주셔서 감사합니다!<br>
         را لتسوقك معنا!<br>
 
-        TEXT
+        TEXT,
     ]);
 
 echo 'render html...' . PHP_EOL;
@@ -92,7 +92,7 @@ if (!file_exists($cache)) {
     mkdir($cache);
 }
 
-echo <<<TXT
+echo <<<'TXT'
 render pdf...
 this will take some time the first time to download the fonts
 

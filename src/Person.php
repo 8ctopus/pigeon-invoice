@@ -21,8 +21,8 @@ class Person extends Entity
 
     public function __toString() : string
     {
-        return "{$this->firstName} {$this->lastName}\n" .
-            parent::__toString();
+        return "{$this->firstName} {$this->lastName}\n"
+            . parent::__toString();
     }
 
     public function firstName() : string
