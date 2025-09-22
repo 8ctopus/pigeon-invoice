@@ -12,13 +12,13 @@ use Oct8pus\Invoice\Item;
 use Oct8pus\Invoice\Person;
 use Oct8pus\Invoice\Shipping;
 use Oct8pus\Invoice\Tax;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
 /**
  * @internal
- *
- * @covers \Oct8pus\Invoice\Invoice
  */
+#[CoversClass(Invoice::class)]
 final class InvoiceTest extends TestCase
 {
     public function testBase() : void

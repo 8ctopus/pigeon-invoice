@@ -5,13 +5,13 @@ declare(strict_types=1);
 namespace Tests;
 
 use Oct8pus\Invoice\Item;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
 /**
  * @internal
- *
- * @covers \Oct8pus\Invoice\Item
  */
+#[CoversClass(Item::class)]
 final class ItemTest extends TestCase
 {
     public function testBase() : void

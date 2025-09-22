@@ -5,15 +5,16 @@ declare(strict_types=1);
 namespace Tests;
 
 use Locale;
+use Oct8pus\Invoice\Entity;
 use Oct8pus\Invoice\Person;
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 
 /**
  * @internal
- *
- * @covers \Oct8pus\Invoice\Entity
- * @covers \Oct8pus\Invoice\Person
  */
+#[CoversClass(Entity::class)]
+#[CoversClass(Person::class)]
 final class PersonTest extends TestCase
 {
     public function testBase() : void
