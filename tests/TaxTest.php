@@ -31,3 +31,4 @@ final class TaxTest extends TestCase
         //$this->assertEquals(gettype((string) $tax), 'string');
     }
 }
+
